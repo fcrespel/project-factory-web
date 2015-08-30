@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="ng-app:pf-manager" id="ng-app" data-ng-app="pf-manager" xmlns:ng="http://angularjs.org">
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11,IE=10,IE=9" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="description" content="Platform Manager" />
+
+<title>Platform Manager</title>
+
+<link type="text/css" href="webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+<link type="text/css" href="webjars/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+<link type="text/css" href="css/application.css" rel="stylesheet" />
+<link type="text/css" href="/portal/themes/default/css/manager.css" rel="stylesheet" />
+
+<script src="webjars/jquery/2.1.3/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="webjars/angularjs/1.3.15/angular.min.js"></script>
+<script src="webjars/angularjs/1.3.15/angular-messages.min.js"></script>
+<script src="webjars/angularjs/1.3.15/angular-resource.min.js"></script>
+<script src="webjars/angularjs/1.3.15/angular-route.min.js"></script>
+<script src="webjars/angular-ui-bootstrap/0.12.1-1/ui-bootstrap-tpls.min.js"></script>
+
+<script src="js/application.js"></script>
+<script src="js/services/alert_service.js"></script>
+<script src="js/services/account_service.js"></script>
+<script src="js/controllers/alert_controller.js"></script>
+<script src="js/controllers/account_controller.js"></script>
+
+<script src="/portal/toolbar.php?format=js&amp;tab=manager"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<!-- Header -->
+		<div id="header" class="row">
+			<h1>Platform Manager</h1>
+		</div>
+		
+		<!-- Main area -->
+		<div id="main" class="row">
+			<div class="col-sm-9 col-md-9 col-lg-10">
+				<!-- Content -->
+				<div id="content" class="row">
+					<!-- Loading backdrop -->
+					<div id="loadingWidget" class="loading-backdrop">
+						<div class="loading-backdrop-table">
+							<div class="loading-backdrop-cell">
+								<div class="block">
+									<i class="fa fa-spinner fa-spin fa-lg"></i> Chargement...
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Alerts -->
+					<div id="alerts" data-ng-controller="AlertController">
+						<div id="alert-error" class="alert alert-danger alert-dismissible hide">
+							<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+							<strong>ERROR<span data-ng-show="error.status"> (code {{error.status}})</span>:</strong> {{error.data.message}}
+						</div>
+						<div id="alert-warning" class="alert alert-warning alert-dismissible hide">
+							<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+							{{warning.data.message}}
+						</div>
+						<div id="alert-success" class="alert alert-success alert-dismissible hide">
+							<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+							{{success.data.message}}
+						</div>
+						<div id="alert-info" class="alert alert-info alert-dismissible hide">
+							<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+							{{info.data.message}}
+						</div>
+					</div>
+					
+					<!-- Current view -->
+					<div data-ng-view></div>
+				</div>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-2">
+				<!-- Sidebar menu -->
+				<div id="sidebar" class="row">
+					<h3>Menu</h3>
+					<ul>
+						<li><a href="#/account">Mon compte</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

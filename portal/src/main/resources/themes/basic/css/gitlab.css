@@ -1,0 +1,17 @@
+/*
+ * Basic Project Factory Theme - GitLab
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.1 (2015-07-26)
+ */
+
+@import url(common.css);
+
+body {
+	margin-top: 37px !important;
+}
+
+header.navbar-gitlab,
+.page-with-sidebar .sidebar-wrapper,
+.collapse-nav a {
+	margin-top: 37px;
+}

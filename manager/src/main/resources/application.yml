@@ -1,0 +1,33 @@
+server:
+  port: 8091
+  contextPath: /manager
+management:
+  contextPath: /management
+security:
+  user:
+    name: root
+    password: bsgMNvYJapj9EZ7N
+    role: USER,ADMIN
+spring:
+  oauth2:
+    sso:
+      home:
+        secure: true
+        path: /
+    client:
+      accessTokenUri: https://dev.project-factory.fr/cas/oauth2.0/accessToken
+      userAuthorizationUri: https://dev.project-factory.fr/cas/oauth2.0/authorize
+      clientId: localhost
+      clientSecret: localhost
+      clientAuthenticationScheme: query
+      authenticationScheme: query
+    resource:
+      userInfoUri: https://dev.project-factory.fr/cas/oauth2.0/profile
+      preferTokenInfo: false
+zuul:
+  routes:
+    resource:
+      path: /v1/**
+      url: http://localhost:8090/api/v1
+logging:
+  path: logs

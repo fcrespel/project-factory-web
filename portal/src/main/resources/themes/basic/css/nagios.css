@@ -1,0 +1,30 @@
+/*
+ * Basic Project Factory Theme - Nagios
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2013-12-22)
+ */
+
+@import url(common.css);
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+#platform-content-wrapper {
+	position: absolute;
+	top: 37px;
+	bottom: 0;
+	width: 100%;
+}
+
+#platform-content-wrapper iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}

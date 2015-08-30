@@ -1,0 +1,130 @@
+/**
+ * Basic Project Factory Theme - Manager
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2015-05-08)
+ */
+
+@import url(common.css);
+
+body {
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #585858;
+	background-color: #f1efe2;
+	padding: 37px 50px 10px 50px;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #222222;
+}
+
+a, a:link, a:visited {
+	color: #116699;
+}
+
+
+/**********/
+/* Header */
+/**********/
+
+#header {
+	padding: 25px 0 0 90px;
+	height: 120px;
+	background-image: url(../img/pf-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 25px;
+}
+
+#header h1 {
+	margin-top: 15px;
+	font-size: 22pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-align: left;
+	line-height: normal;
+}
+
+
+/*************/
+/* Main area */
+/*************/
+
+/*---------*/
+/* Sidebar */
+/*---------*/
+
+#sidebar {
+	margin-left: 5px;
+	padding: 0 10px 15px 20px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#sidebar h3 {
+	margin: 0 -10px 15px -20px;
+	padding: 10px 20px;
+	color: white;
+	background-color: #333333;
+	border: none;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: normal;
+}
+
+#sidebar ul {
+	list-style-type: none;
+	margin: 12px 0;
+	padding: 0;
+}
+
+
+/*---------*/
+/* Content */
+/*---------*/
+
+#content {
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#content h2 {
+	margin: 0 0 20px 0;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+#content h3 {
+	margin: 25px 0 15px 0;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+#content legend {
+	font-size: 18px;
+}
+
+
+/*********************/
+/* Responsive design */
+/*********************/
+
+@media (max-width: 991px) {
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	#sidebar {
+		margin-left: -15px;
+	}
+}

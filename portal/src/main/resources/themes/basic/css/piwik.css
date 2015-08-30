@@ -1,0 +1,11 @@
+/*
+ * Basic Project Factory Theme - Piwik
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2013-12-22)
+ */
+
+@import url(common.css);
+
+body {
+	margin-top: 37px !important;
+}

@@ -1,0 +1,208 @@
+/*
+ * Basic Project Factory Theme - Portal
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.1 (2015-05-24)
+ */
+
+@import url(common.css);
+
+body {
+	color: #585858;
+	background-color: #f1efe2;
+	padding: 37px 50px 10px 50px;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #222222;
+}
+
+a, a:link, a:visited {
+	color: #116699;
+}
+
+
+/**********/
+/* Header */
+/**********/
+
+#header {
+	padding: 25px 0 0 90px;
+	height: 120px;
+	background-image: url(../img/pf-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 25px;
+}
+
+#header h1 {
+	margin-top: 15px;
+	font-size: 22pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-align: left;
+	line-height: normal;
+}
+
+
+/*************/
+/* Main area */
+/*************/
+
+
+/*---------*/
+/* Content */
+/*---------*/
+
+#content {
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#content h2 {
+	margin: 0 0 20px 0;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+#content h3 {
+	margin: 25px 0 15px 0;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+
+/*---------*/
+/* Widgets */
+/*---------*/
+
+#widgets {
+	margin-left: -30px;
+	margin-right: -30px;
+}
+
+.widget {
+	display: block;
+	margin-bottom: 20px;
+	padding: 0 10px 5px 10px;
+	min-height: 240px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 5px #999;
+	transition: border 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+	text-align: center;
+}
+
+.widget:focus, .widget:hover {
+	border: 1px solid #bbb;
+	box-shadow: 0 0 10px #666;
+	text-decoration: none;
+}
+
+.widget h2 {
+	padding: 12px 20px;
+	margin: 0 -10px 20px -10px;
+	color: white;
+	background-color: #333333;
+	background-repeat: repeat-x;
+	background-position: bottom;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: normal;
+}
+
+.widget .logo {
+	height: 80px;
+	line-height: 80px;
+}
+.widget .logo img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.widget .caption {
+	margin: 10px;
+	height: 4.28571em;
+	line-height: 4.28571em;
+	color: #585858;
+}
+.widget .caption p {
+	display: inline-block;
+	line-height: 1.42857em;
+	vertical-align: middle;
+}
+
+
+/*----------*/
+/* Popovers */
+/*----------*/
+
+.popover {
+	font-size: 12px;
+}
+
+.popover-content {
+	padding: 15px 20px;
+}
+
+.popover-content ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.popover-content ul li {
+	margin-bottom: 10px;
+}
+
+
+/**********/
+/* Footer */
+/**********/
+
+#footer {
+	margin-top: 60px;
+}
+
+
+/*********************/
+/* Responsive design */
+/*********************/
+
+@media (max-width: 991px) {
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	#widgets {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	
+	.widget {
+		min-height: 170px;
+		margin-left: -5px;
+		margin-right: -5px;
+	}
+	.widget h2 {
+		margin-bottom: 10px;
+		padding: 8px 10px;
+		font-size: 16px;
+	}
+	.widget .logo {
+		height: 50px;
+		line-height: 50px;
+	}
+	.widget .caption {
+		margin: 10px 0 0 0;
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11,IE=10,IE=9" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="description" content="Platform Manager" />
+
+<title>Platform Manager</title>
+
+<link type="text/css" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/application.css}" rel="stylesheet" />
+<link type="text/css" href="/portal/themes/default/css/manager.css" rel="stylesheet" />
+
+<script src="/portal/toolbar.php?format=js&amp;tab=manager"></script>
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<!-- Header -->
+		<div id="header" class="row">
+			<h1>Platform Manager</h1>
+		</div>
+		
+		<!-- Main area -->
+		<div id="main" class="row">
+			<div class="col-md-12">
+				<!-- Content -->
+				<div id="content" class="row">
+					<h2>Erreur</h2>
+					<p>Une erreur inattendue est survenue, veuillez renouveler votre tentative.</p>
+					<p>Si l'erreur persiste, contactez un administrateur en précisant les éléments suivants :</p>
+					<dl class="dl-horizontal">
+						<dt>Date :</dt>
+						<dd th:text="${timestamp}" />
+						<dt>Type :</dt>
+						<dd th:text="${error}" />
+						<dt>Statut :</dt>
+						<dd th:text="${status}" />
+						<dt>Message :</dt>
+						<dd th:text="${message}" />
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

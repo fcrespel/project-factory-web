@@ -1,0 +1,275 @@
+/*
+ * Basic Project Factory Theme - Jenkins
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.1 (2015-05-14)
+ */
+
+@import url(common.css);
+
+body {
+	margin: 37px 0 0 0;
+	color: #585858;
+	background-color: #f1efe2;
+}
+
+body, table, form, input, td, th, p, textarea, select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+a:link, a:visited {
+	color: #116699;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Headers */
+h1, h2, h3, h4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+/* YUI components */
+#jenkins .yuimenuitem {
+	font-size: 11px;
+}
+
+
+/**********/
+/* Header */
+/**********/
+
+#page-head {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+/* Top panel containing the logo, search box and login box */
+#header {
+	height: 124px;
+	position: relative;
+	background-color: transparent;
+	background-image: url(../img/jenkins-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 25px;
+}
+
+/* Login box */
+#header .login {
+	padding: 0 3px;
+	top: 4px;
+	height: auto;
+	color: #363534;
+}
+#header .login a,
+#header .login a:visited {
+	color: #363534;
+}
+#header .login  b {
+	font-weight: normal;
+	font-size: 10px;
+}
+
+/* Logo */
+#header .logo {
+	position: absolute;
+	margin: 0;
+	left: 90px;
+	top: 50px;
+}
+#header .logo a {
+	display: block;
+	width: 110px;
+	height: 25px;
+	background-image: url(../img/jenkins-title.png);
+	background-repeat: no-repeat;
+}
+#header .logo a img{
+	display: none;
+}
+
+/* Breadcrumb bar */
+#breadcrumbBar,
+#breadcrumbBar .top-sticker-inner {
+	background-color: transparent;
+}
+#breadcrumbBar .top-sticker {
+	width: auto !important;
+	right: 50px;
+	margin-right: 300px;
+}
+
+#breadcrumbBar #breadcrumbs {
+	height: 30px;
+	border-bottom: none;
+}
+#breadcrumbBar #breadcrumbs li {
+	height: 30px;
+	line-height: 30px;
+}
+#breadcrumbBar #breadcrumbs li:hover,
+#breadcrumbBar #breadcrumbs li a.breadcrumbBarAnchor.mouseIsOverMenuSelector {
+	background-color: transparent;
+}
+#breadcrumbBar #breadcrumbs li a {
+	line-height: 30px;
+}
+#breadcrumbBar #breadcrumbs li a:hover {
+	color: #116699;
+}
+
+/* Right top nav */
+#breadcrumbBar #right-top-nav {
+	margin: 3px 10px 0 0;
+}
+#breadcrumbBar #right-top-nav a {
+	color: #585858;
+}
+
+
+/****************/
+/* Main content */
+/****************/
+
+.fixedGridLayout {
+	margin-top: -30px;
+}
+
+.fixedGridLayout #main-panel {
+	margin-left: 15px;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 340px;
+}
+
+.fixedGridLayout #main-panel-content {
+	margin-top: 0;
+	margin-left: 50px;
+	margin-right: 10px;
+	padding-top: 50px;
+	min-height: 600px;
+	overflow: auto;
+}
+
+#main-panel-content {
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#main-panel h1 {
+	margin: 0 0 20px 0;
+	padding: 0;
+	font-size: 28px;
+	font-weight: normal;
+	color: #222222;
+}
+
+#main-panel .cm-s-default {
+	border-color: #cccccc !important;
+}
+
+#main-panel .behavior-loading {
+	left: 50px;
+	right: 350px;
+	width: auto;
+	z-index: 1;
+}
+
+
+/**************/
+/* Side panel */
+/**************/
+
+.fixedGridLayout #side-panel {
+	right: -15px;
+	margin-left: 0;
+	margin-right: 15px;
+	width: 340px;
+}
+
+.fixedGridLayout #side-panel-content {
+	margin-top: 0;
+	margin-left: 10px;
+	margin-right: 50px;
+}
+
+#side-panel-content {
+	margin-top: 0;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#side-panel-content .task-link {
+	font-size: 1em;
+}
+
+
+/**********/
+/* Footer */
+/**********/
+
+#bottom-sticker, .bottom-sticker {
+	width: auto !important;
+	right: 50px;
+	margin-right: 320px;
+}
+
+#footer {
+	border-top: none;
+}
+
+
+/*********************/
+/* Responsive design */
+/*********************/
+
+@media (max-width: 991px) {
+	#page-head {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	#breadcrumbBar .top-sticker {
+		right: 20px;
+	}
+	.fixedGridLayout #main-panel {
+		padding-right: 310px;
+	}
+	.fixedGridLayout #main-panel-content {
+		margin-left: 20px;
+	}
+	.fixedGridLayout #side-panel {
+		width: 310px;
+	}
+	.fixedGridLayout #side-panel-content {
+		margin-right: 20px;
+	}
+	#main-panel .behavior-loading {
+		left: 20px;
+		right: 310px;
+	}
+	#bottom-sticker, .bottom-sticker {
+		right: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	#page-head {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	#breadcrumbBar .top-sticker {
+		right: 0;
+		margin-right: 0;
+	}
+	#main-panel-content,
+	#side-panel-content {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}

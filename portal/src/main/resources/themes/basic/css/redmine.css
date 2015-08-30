@@ -1,0 +1,354 @@
+/*
+ * Basic Project Factory Theme - Redmine
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2013-12-22)
+ */
+
+@import url(common.css);
+
+body {
+	color: #585858;
+	background-color: #f1efe2;
+}
+
+a, a:link, a:visited {
+	color: #116699;
+}
+
+/* Headers */
+h1, h2, h3, h4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+/* Overall wrapper */
+#wrapper {
+	margin: 37px 50px 10px 50px;
+	background-color: transparent;
+}
+
+#main {
+	background-color: transparent;
+}
+
+
+/*** HEADER ******************************************************************/
+
+/* Top menu bar (thin) */
+#top-menu {
+	padding: 4px 2px 0 10px;
+	height: 16px;
+	background-color: transparent;
+	color: #363534;
+	font-size: 10px;
+}
+
+#top-menu a,
+#top-menu #loggedas {
+	color: #363534;
+	font-weight: normal;
+}
+#top-menu #loggedas a {
+	font-weight: bold;
+}
+
+/* Header containing "Redmine" or the project title */
+#header {
+	padding: 4px 0 0 90px;
+	height: 96px;
+	color: #222222;
+	background-color: transparent;
+	background-image: url(../img/redmine-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 5px;
+}
+
+#header a {
+	color: #222222;
+}
+
+#header h1 {
+	margin-top: 16px;
+	padding-top: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 22pt;
+	font-weight: normal;
+}
+
+#header #quick-search {
+	font-size: 11px;
+	float: none;
+	position: absolute;
+	right: 0;
+}
+
+#account,
+#loggedas,
+#quick-search label {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+/* Main menu, inside the header */
+#main-menu {
+	left: 10px;
+	right: 300px;
+	bottom: -1px;
+	height: 26px;
+	margin-right: 0;
+}
+
+#main-menu li a {
+	padding: 4px 8px;
+	height: 16px;
+	color: #555555;
+	background-color: #F6F6F6;
+	font-weight: normal;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+#main-menu li a:hover {
+	color: black;
+	background-color: #F6F6F6;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+#main-menu li a.selected {
+	padding-bottom: 5px;
+	color: #222222;
+	background-color: white;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+#main-menu li a.selected:hover {
+	color: #555555;
+}
+
+#main-menu .submenu {
+	display: none;
+	position: relative;
+}
+#main-menu .submenu.shown {
+	display: block;
+}
+
+#main-menu .submenu:hover > a {
+	background-image: none;
+	padding-bottom: 5px;
+	border-bottom: none;
+}
+
+#main-menu .submenu ul {
+	display: none;
+	position: absolute;
+	top: 26px;
+	right: 0;
+	width: 150px;
+	background-color: #F6F6F6;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+#main-menu .submenu:hover ul {
+	display: block;
+}
+
+#main-menu .submenu ul li {
+	display: block;
+	float: none;
+	margin: 0;
+}
+
+#main-menu .submenu ul li a {
+	background-color: transparent;
+	background-image: none;
+	border: none;
+}
+#main-menu .submenu ul li a:hover {
+	background-color: white;
+}
+
+
+/*** SIDEBAR *****************************************************************/
+
+#sidebar {
+	width: 248px;
+	padding: 0 10px 15px 20px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#sidebar h3 {
+	margin: 0 -10px 15px -20px;
+	padding: 10px 20px;
+	color: white;
+	background-color: #333333;
+	border: none;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#sidebar h4 {
+	border: none;
+	font-weight: bold;
+}
+
+#sidebar a.selected {
+	background-color: white;
+	color: #222222;
+}
+
+
+/*** CONTENT *****************************************************************/
+
+/* Content container */
+#content {
+	margin-right: 300px;
+	padding: 20px;
+	width: auto;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#main.nosidebar #content {
+	margin-right: 0;
+	border-right: 1px solid #cccccc;
+}
+
+/* Flash notices (info messages, update confirmation, errors, etc.) */
+div.flash {
+	border-width: 1px;
+}
+
+/* Contextual actions */
+.contextual {
+	margin-top: 2px;
+}
+
+/* Wiki navigation (Root > Subcategory > Article) */
+p.breadcrumb {
+	margin: 0 -10px;
+	padding: 4px 10px;
+}
+
+/* Page title, Wiki title (under the menu) */
+h2, .wiki h1 {
+	margin: 0 0 20px 0;
+	padding: 0;
+	border: none;
+	font-size: 28px;
+	font-weight: normal;
+	color: #222222 !important;
+}
+
+/* Box title, Wiki subtitle */
+h3, .wiki h2 {
+	font-size: 14px;
+}
+
+/* Wiki container */
+.wiki {
+	padding-left: 10px;
+}
+
+/* Wiki H2 */
+.wiki h2 {
+	font-weight: bold;
+	border-bottom: 2px solid #116699;
+	margin-left: -5px;
+	padding: 1px 10px 2px 5px;
+}
+
+/* Wiki H3 */
+.wiki h3 {
+	color: #585858;
+	border-bottom: 1px solid #585858;
+	margin-left: -5px;
+	padding: 2px 10px 1px 5px;
+}
+
+/* Wiki images */
+.wiki img {
+	max-width: 100%;
+}
+
+/* Wiki links pointing to new pages */
+.wiki a.new {
+	border-bottom: 1px dotted #B73535;
+	text-decoration: none;
+}
+.wiki a.new:hover {
+	border-bottom-style: solid;
+}
+
+/* Tables */
+table.list.issues th, table.list.issues td {
+	font-size: 11px;
+}
+
+/* Issues by priority */
+tr.odd.priority-highest, table.list tbody tr.odd.priority-highest:hover { color: #900; font-weight: bold; }
+tr.odd.priority-highest { background: #ffc4c4; }
+tr.even.priority-highest, table.list tbody tr.even.priority-highest:hover { color: #900; font-weight: bold; }
+tr.even.priority-highest { background: #ffd4d4; }
+tr.priority-highest a, tr.priority-5:hover a { color: #900; }
+tr.odd.priority-highest td, tr.even.priority-highest td { border-color: #ffb4b4; }
+
+tr.odd.priority-high2, table.list tbody tr.odd.priority-high4:hover { color: #900; }
+tr.odd.priority-high2 { background: #ffc4c4; }
+tr.even.priority-high2, table.list tbody tr.even.priority-high4:hover { color: #900; }
+tr.even.priority-high2 { background: #ffd4d4; }
+tr.priority-high2 a { color: #900; }
+tr.odd.priority-high2 td, tr.even.priority-high4 td { border-color: #ffb4b4; }
+
+tr.odd.priority-high3, table.list tbody tr.odd.priority-high3:hover { color: #900; }
+tr.odd.priority-high3 { background: #fee; }
+tr.even.priority-high3, table.list tbody tr.even.priority-high3:hover { color: #900; }
+tr.even.priority-high3 { background: #fff2f2; }
+tr.priority-high3 a { color: #900; }
+tr.odd.priority-high3 td, tr.even.priority-high3 td { border-color: #fcc; }
+
+tr.odd.priority-lowest, table.list tbody tr.odd.priority-lowest:hover { color: #559; }
+tr.odd.priority-lowest { background: #eaf7ff; }
+tr.even.priority-lowest, table.list tbody tr.even.priority-lowest:hover { color: #559; }
+tr.even.priority-lowest { background: #f2faff; }
+tr.priority-lowest a { color: #559; }
+tr.odd.priority-lowest td, tr.even.priority-lowest td { border-color: #add7f3; }
+
+/* Projects */
+ul.projects li.root {
+	list-style-type: none;
+	margin-bottom: 1em;
+	padding: 6px;
+	background-color: #F6F6F6;
+	border: 1px solid #E4E4E4;
+}
+.my-project {
+	background-position: 100% 50%;
+	padding-left: 0;
+	padding-right: 18px;
+}
+
+/* Attachments */
+#content > div.attachments {
+	margin-top: 50px;
+}
+
+/* Billing box title */
+.billing h3 {
+	background: url(../img/icons/money.png) no-repeat scroll 0 50% transparent;
+	padding-left: 20px;
+}
+
+
+/*** FOOTER ******************************************************************/
+
+#footer {
+	background-color: transparent;
+	border-top: none;
+}

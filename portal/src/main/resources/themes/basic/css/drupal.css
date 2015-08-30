@@ -1,0 +1,292 @@
+/*
+ * Basic Project Factory Theme - Drupal
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2014-10-11)
+ */
+
+@import url(common.css);
+
+body {
+	margin-top: 37px;
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #f1efe2;
+	color: #585858;
+}
+
+a, a:hover, a:focus, a:active {
+	color: #116699;
+}
+
+#header div.section,
+#featured div.section,
+#messages div.section,
+#main,
+#triptych,
+#footer-columns,
+#footer {
+	width: auto;
+	min-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header,
+#footer-wrapper,
+#skip-link,
+ul.contextual-links,
+ul.links,
+ul.primary,
+.item-list .pager,
+div.field-type-taxonomy-term-reference,
+div.messages,
+div.meta,
+p.comment-time,
+table,
+.breadcrumb {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.region-header,
+.region-header a,
+.region-header li a.active,
+#name-and-slogan,
+#name-and-slogan a,
+#secondary-menu-links li a {
+	color: #222222;
+}
+
+
+/************************/
+/* Admin menu & toolbar */
+/************************/
+
+#toolbar,
+#admin-menu {
+	display: none;
+}
+
+html body.admin-menu {
+	margin-top: 37px !important;
+}
+
+
+/********/
+/* Page */
+/********/
+
+#page-wrapper {
+	background-color: #f1efe2;
+	padding: 120px 50px 20px 50px;
+	min-width: 500px;
+	min-height: 0;
+}
+
+#page {
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+	min-width: 500px;
+}
+
+
+/**********/
+/* Header */
+/**********/
+
+#header {
+	background-color: transparent;
+	background-image: none;
+	margin: -121px -1px 0 -1px;
+	height: 121px;
+}
+
+#logo {
+	padding: 25px 0 0 10px;
+}
+
+#name-and-slogan {
+	margin: 0 0 22px 16px;
+	padding-top: 44px;
+}
+
+#site-name {
+	font-size: 22pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#site-name a {
+	font-weight: normal;
+}
+
+#main-menu-links {
+	padding-left: 10px;
+	font-size: 12px;
+}
+
+#main-menu-links li {
+	padding: 0;
+	margin: 0 2px 0 0;
+}
+
+#main-menu-links a {
+	padding: 4px 8px;
+	height: 16px;
+	line-height: normal;
+	color: #555555;
+	background-color: #F6F6F6;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-radius: 0;
+	text-shadow: none;
+}
+
+#main-menu-links a:hover {
+	color: #222222;
+	background-color: #F6F6F6;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+#main-menu-links li a.active,
+#main-menu-links li.active-trail a {
+	color: #222222;
+	background-color: white;
+	background-image: none;
+	border-bottom: 1px solid white;
+}
+
+#secondary-menu-links {
+	margin-top: 2px;
+	font-size: 10px;
+}
+
+#secondary-menu-links a {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+
+/*************/
+/* Main area */
+/*************/
+
+#main {
+	margin-top: 10px;
+}
+
+#breadcrumb {
+	margin: 0 20px;
+}
+
+#content .section {
+	padding: 0 20px;
+}
+
+h1#page-title {
+	margin-top: 10px;
+	font-size: 28px;
+	line-height: normal;
+}
+
+.no-sidebars #content,
+.one-sidebar #content {
+	width: 100%;
+}
+
+.sidebar-first #content,
+.two-sidebars #content {
+	width: 75%;
+}
+
+.sidebar-second #page,
+.two-sidebars #page {
+	margin-right: 300px;
+}
+
+.sidebar-second #header,
+.two-sidebars #header {
+	margin-right: -300px;
+}
+
+#sidebar-first {
+	width: 25%;
+}
+
+#sidebar-second {
+	float: right;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 10px #999;
+	width: 278px;
+	margin-top: -10px;
+	margin-right: -300px;
+}
+
+#sidebar-second .section {
+	padding: 0;
+}
+
+#sidebar-second .block {
+	background-color: transparent;
+	border: 0 none;
+	margin-bottom: 0;
+}
+
+#sidebar-second .block > h2 {
+	background-color: #333;
+	border: 0 none;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	margin: -15px -20px 15px -20px;
+	padding: 10px 20px;
+	text-shadow: none;
+}
+
+.not-front #sidebar-second {
+	margin-top: -35px;
+}
+
+
+/************/
+/* Triptych */
+/************/
+
+.region-triptych-first,
+.region-triptych-middle,
+.region-triptych-last {
+	margin: 20px 1.25% 30px 1.25%;
+	width: 30%;
+}
+
+
+/**********/
+/* Footer */
+/**********/
+
+#footer-wrapper {
+	margin-bottom: -80px;
+	background-color: transparent;
+	color: #585858;
+}
+
+#footer-wrapper a,
+#footer-wrapper a:hover,
+#footer-wrapper a:focus {
+	color: #116699;
+}
+
+#footer {
+	border: none;
+}
+
+.region-footer-firstcolumn,
+.region-footer-secondcolumn,
+.region-footer-thirdcolumn,
+.region-footer-fourthcolumn {
+	width: 25%;
+	margin: 0;
+	padding: 0;
+}

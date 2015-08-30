@@ -1,0 +1,246 @@
+/*
+ * Basic Project Factory Theme - Subversion
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2013-12-22)
+ */
+
+@import url(common.css);
+
+* {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #585858;
+	background-color: #f1efe2;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0 0 15px 0;
+	color: #222222;
+}
+
+p {
+	margin: 0 0 10px 0;
+}
+
+ul, ol {
+	margin: 0 0 10px 25px;
+}
+
+img {
+	border: 0;
+}
+
+a, a:link, a:visited {
+	color: #116699;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.clear {
+	clear: both;
+}
+
+#wrapper {
+	margin: 37px 50px 10px 50px;
+	padding: 20px 0 0 0;
+	background-repeat: no-repeat;
+	background-position: right 10px;
+}
+
+
+/**********/
+/* Header */
+/**********/
+
+#header {
+	padding: 4px 0 0 90px;
+	height: 96px;
+	background-image: url(../img/svn-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 5px;
+}
+
+#header h1 {
+	margin-top: 16px;
+	font-size: 22pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-align: left;
+}
+
+
+/*************/
+/* Main area */
+/*************/
+
+#main {
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid #cccccc;
+	background-color: white;
+	box-shadow: 0 0 10px #999999;
+}
+
+#main h2 {
+	margin: 0 0 20px 0;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+#main h3 {
+	margin: 25px 0 15px 0;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+
+/*---------------------*/
+/* Contextual commands */
+/*---------------------*/
+
+#commandbar {
+	float: right;
+	height: 20px;
+	padding: 3px;
+}
+
+/* command = commandbar button, <a> is  active, <span> is greyed out */
+#commandbar a, #commandbar span {
+	font-size: 11px;
+	margin: 0 0 0 5px;
+	padding: 5px 10px 5px 22px;
+	line-height: 1.5em;
+}
+#commandbar span {
+	color: #bbbbbb;
+}
+
+#commandbar .command {
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+#commandbar #back {
+	background-image: url(../img/icons/arrow_left.png);
+}
+#commandbar #parent {
+	background-image: url(../img/icons/arrow_up.png);
+}
+#commandbar #refresh {
+	background-image: url(../img/icons/arrow_refresh.png);
+}
+#commandbar #home {
+	background-image: url(../img/icons/house.png);
+}
+
+
+/*-------------------*/
+/* Directory listing */
+/*-------------------*/
+
+.index {
+	margin-left: 0;
+	border: 1px solid #E4E4E4;
+}
+.index li {
+	list-style: none;
+	padding: 2px;
+	margin: 0;
+}
+.index li.n0 {
+	background-color: #F6F7F8;
+}
+.index li.n1 {
+	background-color: #FFFFFF;
+}
+.index li:hover {
+	background-color: #FFFFDD;
+}
+
+
+/*------------*/
+/* File icons */
+/*------------*/
+
+.file, .folder {
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 26px;
+	margin-left: 10px;
+}
+.folder {
+	background-image: url(../img/icons/folder.png);
+}
+.file {
+	background-image: url(../img/icons/page_white.png);
+}
+.file-zip { background-image: url(../img/icons/page_white_zip.png);}
+.file-gz { background-image: url(../img/icons/page_white_compressed.png);}
+.file-bz2 { background-image: url(../img/icons/page_white_compressed.png);}
+.file-7z { background-image: url(../img/icons/page_white_compressed.png);}
+.file-exe { background-image: url(../img/icons/application.png);}
+.file-bat { background-image: url(../img/icons/application_xp_terminal.png);}
+.file-cmd { background-image: url(../img/icons/application_xp_terminal.png);}
+.file-html { background-image: url(../img/icons/page_world.png);}
+.file-htm { background-image: url(../img/icons/page_world.png);}
+.file-css { background-image: url(../img/icons/page_white_paint.png);}
+.file-doc { background-image: url(../img/icons/page_white_word.png);}
+.file-xls { background-image: url(../img/icons/page_white_excel.png);}
+.file-ppt { background-image: url(../img/icons/page_white_powerpoint.png);}
+.file-ai { background-image: url(../img/icons/page_white_vector.png);}
+.file-bmp { background-image: url(../img/icons/page_white_picture.png);}
+.file-gif { background-image: url(../img/icons/page_white_picture.png);}
+.file-jpg { background-image: url(../img/icons/page_white_picture.png);}
+.file-png { background-image: url(../img/icons/page_white_picture.png);}
+.file-psd { background-image: url(../img/icons/page_white_picture.png);}
+.file-tif { background-image: url(../img/icons/page_white_picture.png);}
+.file-fla { background-image: url(../img/icons/page_white_flash.png);}
+.file-swf { background-image: url(../img/icons/page_white_flash.png);}
+.file-pdf { background-image: url(../img/icons/page_white_acrobat.png);}
+.file-sh { background-image: url(../img/icons/page_white_tux.png);}
+.file-h { background-image: url(../img/icons/page_white_h.png);}
+.file-c { background-image: url(../img/icons/page_white_c.png);}
+.file-cpp { background-image: url(../img/icons/page_white_cplusplus.png);}
+.file-cs { background-image: url(../img/icons/page_white_csharp.png);}
+.file-java { background-image: url(../img/icons/page_white_cup.png);}
+.file-php { background-image: url(../img/icons/page_white_php.png);}
+.file-rb { background-image: url(../img/icons/page_white_ruby.png);}
+.file-sql { background-image: url(../img/icons/page_white_database.png);}
+.file-xml { background-image: url(../img/icons/page_white_code.png);}
+.file-xsd { background-image: url(../img/icons/page_white_code.png);}
+.file-xsl { background-image: url(../img/icons/page_white_code.png);}
+.file-txt { background-image: url(../img/icons/page_white_text.png);}
+.file-log { background-image: url(../img/icons/page_white_text.png);}
+.file-cfg { background-image: url(../img/icons/page_white_gear.png);}
+.file-ini { background-image: url(../img/icons/page_white_gear.png);}
+.file-properties { background-image: url(../img/icons/page_white_gear.png);}
+.file-sln { background-image: url(../img/icons/page_white_visualstudio.png);}
+.file-csproj { background-image: url(../img/icons/page_white_visualstudio.png);}
+.file-vcproj { background-image: url(../img/icons/page_white_visualstudio.png);}
+
+
+/**********/
+/* Footer */
+/**********/
+
+#footer {
+	margin-top: 50px;
+	clear: both;
+	color: #999999;
+	font-size: 11px;
+}
+#footer .revision {
+	color: #666666;
+	font-weight: bold;
+}
+#footer .credits {
+	float: right;
+}

@@ -1,0 +1,344 @@
+/*
+ * Basic Project Factory Theme - OSQA
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2013-12-22)
+ */
+ 
+@import url(common.css);
+
+body {
+	margin-top: 37px !important;
+	margin-left: 50px;
+	margin-right: 50px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #585858;
+	background-color: #f1efe2 !important;
+}
+
+a, a:link, a:visited {
+    color: #116699;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+pre {
+	width: auto;
+    font-size: 100%;
+}
+pre.prettyprint {
+	border-style: none !important;
+	padding: 5px !important;
+}
+
+.darkred {
+	color: #116699;
+}
+
+.notify {
+	top: 50px;
+	right: 320px;
+	left: auto;
+	width: 450px;
+	background-color: white;
+	border: 2px solid #116699;
+}
+.notify p {
+	font-size: 14px;
+}
+
+.tabsA {
+	font-weight: normal;
+}
+.tabsA a:hover,
+.tags a:hover {
+	background-color: #116699;
+}
+.tabsA a.on:hover {
+	color: white;
+}
+
+.submit {
+	height: 36px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+	background-color: #333333;
+}
+
+
+/*** HEADER ******************************************************************/
+
+#roof {
+	width: auto;
+	height: 120px;
+	padding-left: 90px;
+	position: relative;
+	background-image: url(../img/osqa-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 25px;
+}
+
+#top {
+	float: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-top: 1px;
+	background-color: transparent;
+}
+#top a {
+	margin-left: 10px;
+	padding-left: 3px;
+	padding-right: 3px;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+#logo {
+	padding-top: 46px;
+}
+#logo a {
+	display: block;
+	width: 320px;
+	height: 30px;
+	background-image: url(../img/osqa-title.png);
+	background-repeat: no-repeat;
+}
+#logo img {
+	visibility: hidden;
+}
+
+#nav {
+	margin: 0 0 0 -525px;
+	position: absolute;
+	left: 50%;
+	bottom: -1px;
+	width: 750px;
+	height: 32px;
+}
+
+#nav a, #nav a#nav_ask {
+	padding-bottom: 6px;
+	height: 24px;
+	color: #555555;
+	background-color: #f6f6f6;
+	background-repeat: repeat-x;
+	background-position: bottom;
+	border-color: #cccccc;
+}
+#nav a.on, #nav a#nav_ask.on {
+	height: 25px;
+	color: #222222;
+	background-color: white;
+	background-image: none;
+	border-bottom: none;
+	border-color: #cccccc;
+}
+
+#searchBar {
+	margin-right: 300px;
+	padding-top: 10px;
+	width: auto;
+	height: 55px;
+	background-color: transparent;
+	border: none;
+}
+
+#searchBar .searchInput {
+	border: 1px solid #cccccc;
+}
+
+#searchBar .searchBtn {
+	padding: 2px 5px;
+	color: white;
+	background-color: #333333;
+	border: 1px solid #333333;
+	width: auto;
+}
+
+
+/*** CONTENT *****************************************************************/
+
+#wrapper {
+	margin-top: -65px;
+	margin-right: 300px;
+	padding-top: 65px;
+	width: auto;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#room {
+	padding: 20px;
+	border: none;
+}
+
+#CALeft, #CAFull {
+	width: 100%;
+}
+
+.tabBar {
+	margin-bottom: 20px;
+}
+
+.headMedals,
+.headNormal,
+.headQuestions,
+.headUser,
+.headUsers {
+	margin-left: 0;
+	margin-bottom: 20px;
+	padding: 0 6px 0 0;
+	color: #222222;
+	background: none transparent;
+	border: none;
+	font-size: 28px;
+	font-weight: normal;
+}
+.headNormal h1 {
+	font-size: 100%;
+	font-weight: normal;
+}
+#askform .headNormal,
+#askform .headQuestions {
+	font-size: 20px;
+}
+
+.headlineA {
+	margin-bottom: 20px;
+	border: none;
+}
+
+.tabsA a.on {
+	color: #222222;
+}
+
+#listA {
+	background-color: transparent;
+}
+
+.short-summary {
+	float: none;
+	width: auto;
+}
+.short-summary .counts {
+	margin-top: 0;
+}
+.short-summary .question-summary-wrapper {
+	float: none;
+	width: auto;
+}
+.short-summary h2 a {
+	color: #116699;
+}
+.user-stats-table .short-summary {
+	width: auto;
+	margin-right: 60px;
+}
+
+.short-summary .votes, .short-summary .status, .short-summary .views {
+	width: 55px;
+}
+
+div.question-body p, div.answer-body p {
+	max-width: none;
+}
+
+.comment-text img {
+	max-width: 640px;
+}
+
+.post-update-info {
+	width: 220px;
+}
+
+.dialog,
+.context-menu-dropdown,
+#user-menu-dropdown {
+	box-shadow: 2px 2px 5px #999999 !important;
+}
+.context-menu-dropdown li.item:hover,
+#user-menu-dropdown li.item:hover {
+	background-color: #116699 !important;
+}
+#user-menu {
+	color: #116699 !important;
+}
+
+table.check-table td {
+	padding-right: 40px;
+}
+
+
+/*** SIDEBAR *****************************************************************/
+
+#CARight {
+	margin: -86px -321px 10px 0;
+	width: 280px;
+	border: 1px solid #cccccc;
+	background-color: white;
+	box-shadow: 0 0 10px #999999;
+}
+
+#CARight .boxA,
+#CARight .boxC {
+	margin: 0;
+	padding: 15px 10px 15px 25px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #cccccc;
+}
+
+#CARight .boxA {
+	background-color: white;
+}
+#CARight .boxA .body {
+	padding: 0;
+	border: none;
+}
+
+#CARight .questions-count {
+	color: #116699;
+}
+
+#CARight p {
+	font-size: 12px;
+}
+
+#CARight h2,
+#CARight h3 {
+	color: white;
+	background-color: #333333;
+	margin: 0 -10px 10px -25px;
+	padding: 10px 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#CARight h2:first-child,
+#CARight h3:first-child {
+	margin-top: -15px;
+}
+
+
+/*** FOOTER ******************************************************************/
+
+#ground {
+	background-color: transparent;
+	border: none;
+}
+
+#ground p {
+	font-size: 11px;
+}
+
+#ground .footerLinks, .footerLinks a {
+    color: #116699;
+	font-size: 11px;
+}
+
+#ground #licenseLogo {
+	display: none;
+}

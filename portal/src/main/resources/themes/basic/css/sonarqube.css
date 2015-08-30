@@ -1,0 +1,209 @@
+/*
+ * Basic Project Factory Theme - SonarQube
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2014-08-17)
+ */
+
+@import url(common.css);
+
+html {
+	background-color: transparent !important;
+}
+
+body {
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #585858;
+	background-color: #f1efe2;
+}
+
+a, a:link, a:visited {
+	color: #116699;
+}
+
+
+/*************/
+/* Container */
+/*************/
+
+#container {
+	margin: 37px 50px 20px 50px;
+	background-color: transparent;
+	background-image: url(../img/sonarqube-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 25px;
+}
+
+/*--------*/
+/* Header */
+/*--------*/
+
+#hd {
+	height: 90px;
+	line-height: 22px;
+	font-size: 10px;
+	background-color: transparent;
+	background-image: url(../img/sonarqube-title.png);
+	background-repeat: no-repeat;
+	background-position: 90px 47px;
+}
+
+#hd #nav-left > ul > li,
+#hd #nav > ul > li {
+	height: 25px;
+}
+
+#hd #nav-left > ul > li > a,
+#hd #nav > ul > li > a {
+	font-size: 10px;
+	letter-spacing: normal;
+}
+
+#hd a,
+#hd a:hover,
+#hd a:focus {
+	color: #363534;
+}
+
+#hd a.selected {
+	color: #363534;
+	font-weight: bold;
+}
+
+/*--------*/
+/* Crumbs */
+/*--------*/
+
+#crumbs {
+	padding-bottom: 4px;
+	border: none;
+	background-color: transparent;
+	font-size: 11px;
+}
+
+#bc li {
+	padding-right: 15px;
+	border: none;
+	background-color: transparent;
+	background-image: url(../img/raquo.png);
+}
+
+/*------*/
+/* Body */
+/*------*/
+
+#hd + #body {
+	margin-top: 30px; /* Compensate missing crumbs */
+}
+
+#body.nolayout {
+	margin: 0;
+	background: white;
+}
+
+#body #content {
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#body #content.with_sidebar {
+	margin: 0 300px 0 0;
+	padding: 20px;
+	min-height: 500px;
+}
+
+#body #content.page {
+	padding: 20px;
+}
+
+#body #content h1 {
+	font-size: 28px;
+}
+
+#body #content h1.navigator-header-title {
+	font-size: 20px;
+}
+
+#body #content h1.admin-page-title {
+	margin-bottom: 5px;
+}
+
+.highlighted-link,
+.underlined-link,
+.widget-link,
+#dashboard .widget-title a {
+	color: #116699;
+}
+
+/*---------*/
+/* Sidebar */
+/*---------*/
+
+#sidebar {
+	left: auto !important;
+	right: 0;
+	width: 278px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#sidebar.sticky {
+	right: 50px;
+}
+
+ul.sidebar {
+	padding: 10px 0 20px 0;
+	border: none;
+	background-color: transparent;
+}
+
+ul.sidebar li {
+	padding: 3px 10px 3px 20px;
+}
+
+ul.sidebar li.active {
+	font-weight: bold;
+	background-color: transparent;
+}
+
+ul.sidebar li.sidebar-title {
+	margin-bottom: 10px;
+	margin-top: -10px;
+	padding: 10px 20px;
+	color: white;
+	background-color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: none;
+}
+
+ul.sidebar li.spacer {
+	height: 20px;
+}
+
+ul.sidebar li > a {
+	color: #116699;
+}
+
+ul.sidebar li.active a,
+ul.sidebar li.active a:hover,
+ul.sidebar li.active a:focus {
+	color: #222222;
+}
+
+
+/**********/
+/* Footer */
+/**********/
+
+#footer {
+	border: none !important;
+}
+
+#ftlinks {
+	background-color: transparent !important;
+	border: none;
+}

@@ -1,0 +1,36 @@
+# Cookie-based theme switching support
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /portal/themes/
+
+	# Switch theme with a cookie
+	RewriteRule ^switch/(.+)$ index.html [CO=pftheme:$1:%{HTTP_HOST}:10080:/portal/themes/,L]
+
+	# Current theme rewriting depending on cookie
+	RewriteCond %{HTTP_COOKIE} pftheme=([^;]+) [NC]
+	RewriteRule ^current/(.*)$ %1/$1 [L]
+
+	# Default theme if no cookie is defined
+	RewriteRule ^current/(.*)$ default/$1 [L]
+
+	# Default theme if theme file doesn't exist
+	RewriteCond %{REQUEST_URI} !^default/(.*)$
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^([^/]+)/(.*)$ default/$2 [L]
+</IfModule>
+
+# Disable cache on index.html, used for switching themes
+<Files "index.html">
+	Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+	Header set Pragma "no-cache"
+	Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+	Header unset ETag
+</Files>
+
+# Configure cache on static resources
+<FilesMatch "\.(gif|jpe?g|png|css|js)$">
+	ExpiresActive On
+	ExpiresDefault A86400
+	Header merge Cache-Control "must-revalidate"
+</FilesMatch>

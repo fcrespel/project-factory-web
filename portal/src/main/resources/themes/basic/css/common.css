@@ -1,0 +1,156 @@
+/*
+ * Basic Project Factory Theme - Common parts
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2015-04-30)
+ */
+
+
+/********************/
+/* Platform Toolbar */
+/********************/
+
+#platform-toolbar-wrapper {
+	position: absolute; /* Default to absolute for IE6 */
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99999;
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: white;
+	box-shadow: 0 0 10px #999999;
+}
+html>body #platform-toolbar-wrapper {
+	position: fixed; /* Switch to fixed position for non-IE6 */
+}
+
+#platform-toolbar-wrapper * {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: content-box;
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+}
+
+#platform-toolbar {
+	padding: 3px 2px 3px 10px;
+	background-color: #333333;
+	color: white;
+	height: 31px;
+	line-height: normal;
+	overflow: hidden;
+}
+
+#platform-toolbar h1 {
+	float: left;
+	margin: 3px 0 0 0;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	color: white;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: normal;
+}
+#platform-toolbar h1 a {
+	background-color: transparent;
+	color: white;
+	text-decoration: none;
+}
+
+#platform-toolbar img {
+	vertical-align: baseline;
+}
+
+
+/*------*/
+/* Tabs */
+/*------*/
+
+#platform-toolbar ul.tabs {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	height: auto;
+}
+#platform-toolbar ul.tabs li {
+	float: left;
+	margin: 3px 5px 5px 5px;
+	background-color: transparent;
+}
+#platform-toolbar ul.tabs li a {
+	display: block;
+	padding: 4px 7px 0 7px;
+	height: 18px;
+	border: 1px solid white;
+	background-color: transparent;
+	color: white;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+}
+#platform-toolbar ul.tabs li.active a,
+#platform-toolbar ul.tabs li a:hover {
+	background-color: white;
+	color: black;
+}
+#platform-toolbar ul.tabs li a:hover {
+	text-decoration: underline;
+}
+
+#platform-toolbar ul.tabs li a sup {
+	line-height: 4px;
+}
+#platform-toolbar ul.tabs li a sup.new {
+	color: red;
+}
+
+#platform-toolbar #home {
+	margin-left: 30px;
+	margin-right: 20px;
+}
+
+#platform-toolbar #manager {
+	float: right;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+/*-----------------*/
+/* Service message */
+/*-----------------*/
+
+#platform-toolbar #service-message {
+	float: right;
+	margin: 6px 10px 0 0;
+	padding: 2px 0 0 20px;
+	height: 16px;
+	font-size: 11px;
+	color: white;
+	background-repeat: no-repeat;
+	background-position: center left;
+	background-color: transparent;
+}
+
+#platform-toolbar #service-message a {
+	color: white;
+}
+
+#platform-toolbar #service-message.critical {
+	background-image: url(../img/icons/exclamation.png);
+	color: #ff7755;
+}
+#platform-toolbar #service-message.warning {
+	background-image: url(../img/icons/error.png);
+	color: #cc9933;
+}
+#platform-toolbar #service-message.info {
+	background-image: url(../img/icons/information.png);
+	color: #66aadd;
+}

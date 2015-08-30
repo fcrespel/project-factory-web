@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Platform API</title>
+</head>
+
+<body>
+	<h1>Error</h1>
+	<p>An unexpected error occurred, please try again.</p>
+	<p>If the error persists, please contact an administrator with the following details:</p>
+	<dl class="dl-horizontal">
+		<dt>Date:</dt>
+		<dd th:text="${timestamp}" />
+		<dt>Type:</dt>
+		<dd th:text="${error}" />
+		<dt>Status:</dt>
+		<dd th:text="${status}" />
+		<dt>Message:</dt>
+		<dd th:text="${message}" />
+	</dl>
+</body>
+
+</html>

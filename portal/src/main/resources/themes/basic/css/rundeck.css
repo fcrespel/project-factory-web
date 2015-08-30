@@ -1,0 +1,15 @@
+/*
+ * Basic Project Factory Theme - Rundeck
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.0 (2015-04-12)
+ */
+
+@import url(common.css);
+
+body {
+	margin-top: 37px !important;
+}
+
+#platform-toolbar-wrapper {
+	box-shadow: 0 0 10px black;
+}

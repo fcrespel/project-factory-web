@@ -1,0 +1,139 @@
+/*
+ * Basic Project Factory Theme - CAS
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ * @version 1.1 (2015-05-25)
+ */
+
+@import url(common.css);
+
+html, body {
+	min-height: 100%;
+}
+
+body {
+	padding: 37px 50px 0 50px;
+	color: #585858;
+	background-color: #f1efe2;
+}
+
+a, a:visited {
+	color: #116699;
+}
+
+
+/***********/
+/* Wrapper */
+/***********/
+
+#wrapper {
+	margin: 60px auto 20px auto;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+
+/**********/
+/* Header */
+/**********/
+
+#header {
+	margin-top: 35px;
+	margin-bottom: 40px;
+	height: 75px;
+}
+
+#header h1 {
+	margin: 0;
+	padding-top: 15px;
+	color: #222222;
+	font-size: 22pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-align: center;
+}
+
+
+/***********/
+/* Content */
+/***********/
+
+#content {
+	margin-bottom: 60px;
+}
+
+#content h2 {
+	font-size: 18px;
+}
+
+
+/*----------*/
+/* Messages */
+/*----------*/
+
+#msg h2 {
+	margin-top: 0;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+/*------------*/
+/* Login form */
+/*------------*/
+
+#login h2 {
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+#login #instructions ul {
+	margin: -10px 0 20px 25px;
+	padding: 0;
+	list-style-type: circle;
+}
+
+#login .form-group-sm {
+	margin-bottom: 10px;
+}
+
+
+/*********************/
+/* Responsive design */
+/*********************/
+
+@media (max-width: 991px) {
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	#wrapper {
+		margin-top: 40px;
+	}
+
+	#header {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	body {
+		padding-left: 0;
+		padding-right: 0;
+		background-color: white;
+	}
+
+	#wrapper {
+		margin: 0 -15px;
+		background: none;
+		border: none;
+		box-shadow: none;
+	}
+
+	#header {
+		margin-top: 30px;
+		margin-bottom: 20px;
+	}
+}

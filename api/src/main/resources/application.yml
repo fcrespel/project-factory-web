@@ -1,0 +1,43 @@
+server:
+  port: 8090
+  contextPath: /api
+management:
+  contextPath: /management
+security:
+  user:
+    name: root
+    password: bsgMNvYJapj9EZ7N
+    role: USER,ADMIN
+authorization:
+  userAttribute: name
+  userAuthorityPrefix: USER_
+  userAuthorityUppercase: false
+  groupAttribute: details?.get('attributes')?.^[#this['groups']!=null]?.get('groups')
+  groupAuthorityPrefix: GROUP_
+  groupAuthorityUppercase: false
+  authorityMapping:
+    ROLE_ADMIN: GROUP_pf-admins
+spring:
+  oauth2:
+    sso:
+      home:
+        secure: true
+        path: /
+    client:
+      accessTokenUri: https://dev.project-factory.fr/cas/oauth2.0/accessToken
+      userAuthorizationUri: https://dev.project-factory.fr/cas/oauth2.0/authorize
+      clientId: localhost
+      clientSecret: localhost
+      clientAuthenticationScheme: query
+      authenticationScheme: query
+    resource:
+      userInfoUri: https://dev.project-factory.fr/cas/oauth2.0/profile
+      preferTokenInfo: false
+ldap:
+  contextSource:
+    url: ldap://localhost:10389
+    base: dc=dev,dc=project-factory,dc=fr
+    userDn: cn=root,dc=dev,dc=project-factory,dc=fr
+    password: MCSY74ZrhBnNc4ah
+logging:
+  path: logs
