@@ -1,7 +1,7 @@
 /*
  * Basic Project Factory Theme - Jenkins
  * @author Fabien CRESPEL <fabien@crespel.net>
- * @version 1.1 (2015-05-14)
+ * @version 1.2 (2015-11-22)
  */
 
 @import url(common.css);
@@ -48,7 +48,7 @@ h1, h2, h3, h4 {
 
 /* Top panel containing the logo, search box and login box */
 #header {
-	height: 124px;
+	height: 120px;
 	position: relative;
 	background-color: transparent;
 	background-image: url(../img/jenkins-logo.png);
@@ -77,7 +77,7 @@ h1, h2, h3, h4 {
 	position: absolute;
 	margin: 0;
 	left: 90px;
-	top: 50px;
+	top: 46px;
 }
 #header .logo a {
 	display: block;
@@ -133,31 +133,18 @@ h1, h2, h3, h4 {
 /* Main content */
 /****************/
 
-.fixedGridLayout {
+#page-body {
 	margin-top: -30px;
 }
 
-.fixedGridLayout #main-panel {
-	margin-left: 15px;
-	margin-right: 0;
-	padding-left: 0;
-	padding-right: 340px;
-}
-
-.fixedGridLayout #main-panel-content {
-	margin-top: 0;
-	margin-left: 50px;
-	margin-right: 10px;
-	padding-top: 50px;
+#main-panel {
+	margin: 0 350px 80px 50px;
+	padding: 50px 20px 20px 20px;
 	min-height: 600px;
-	overflow: auto;
-}
-
-#main-panel-content {
-	padding: 20px;
 	background-color: white;
 	border: 1px solid #cccccc;
 	box-shadow: 0 0 10px #999999;
+	overflow: auto;
 }
 
 #main-panel h1 {
@@ -179,49 +166,29 @@ h1, h2, h3, h4 {
 	z-index: 1;
 }
 
-
-/**************/
-/* Side panel */
-/**************/
-
-.fixedGridLayout #side-panel {
-	right: -15px;
-	margin-left: 0;
-	margin-right: 15px;
-	width: 340px;
-}
-
-.fixedGridLayout #side-panel-content {
-	margin-top: 0;
-	margin-left: 10px;
-	margin-right: 50px;
-}
-
-#side-panel-content {
-	margin-top: 0;
-	padding: 10px;
-	background-color: white;
-	border: 1px solid #cccccc;
-	box-shadow: 0 0 10px #999999;
-}
-
-#side-panel-content .task-link {
-	font-size: 1em;
-}
-
-
-/**********/
-/* Footer */
-/**********/
-
 #bottom-sticker, .bottom-sticker {
 	width: auto !important;
 	right: 50px;
 	margin-right: 320px;
 }
 
-#footer {
-	border-top: none;
+
+/**************/
+/* Side panel */
+/**************/
+
+#side-panel {
+	float: right;
+	width: 280px;
+	margin: 0 50px 0 0;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 10px #999999;
+}
+
+#tasks .task {
+	font-size: 11px;
 }
 
 
@@ -237,28 +204,23 @@ h1, h2, h3, h4 {
 	#breadcrumbBar .top-sticker {
 		right: 20px;
 	}
-	.fixedGridLayout #main-panel {
-		padding-right: 310px;
-	}
-	.fixedGridLayout #main-panel-content {
+	#main-panel {
 		margin-left: 20px;
-	}
-	.fixedGridLayout #side-panel {
-		width: 310px;
-	}
-	.fixedGridLayout #side-panel-content {
-		margin-right: 20px;
+		margin-right: 320px;
 	}
 	#main-panel .behavior-loading {
 		left: 20px;
-		right: 310px;
+		right: 320px;
+	}
+	#side-panel {
+		margin-right: 20px;
 	}
 	#bottom-sticker, .bottom-sticker {
 		right: 20px;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	#page-head {
 		margin-left: 0;
 		margin-right: 0;
@@ -267,9 +229,26 @@ h1, h2, h3, h4 {
 		right: 0;
 		margin-right: 0;
 	}
-	#main-panel-content,
-	#side-panel-content {
+	#page-body {
+		margin-top: 0;
+	}
+	#main-panel {
 		margin-left: 0;
+		margin-right: 0;
+		padding-top: 20px;
+		min-height: 0;
+	}
+	#main-panel .behavior-loading {
+		left: 0;
+		right: 0;
+	}
+	#side-panel {
+		float: none;
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	#bottom-sticker, .bottom-sticker {
 		margin-right: 0;
 	}
 }
