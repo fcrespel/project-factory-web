@@ -1,4 +1,7 @@
 .project
 .classpath
+.factorypath
 .settings
+.springBeans
+.apt_generated
 target
