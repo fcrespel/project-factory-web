@@ -1,4 +1,4 @@
-package com.cgi.projectfactory.manager;
+package fr.projectfactory.manager;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;

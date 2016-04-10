@@ -1,4 +1,4 @@
-package com.cgi.projectfactory.manager.config;
+package fr.projectfactory.manager.config;
 
 import java.io.IOException;
 

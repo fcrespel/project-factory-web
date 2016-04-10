@@ -37,7 +37,7 @@
 	<description>Project Factory Platform Manager</description>
 
 	<properties>
-		<start-class>com.cgi.projectfactory.manager.ManagerApplication</start-class>
+		<start-class>fr.projectfactory.manager.ManagerApplication</start-class>
 	</properties>
 
 	<dependencies>
