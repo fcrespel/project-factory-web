@@ -37,7 +37,7 @@
 	<description>Project Factory Platform API</description>
 
 	<properties>
-		<start-class>com.cgi.projectfactory.api.ApiApplication</start-class>
+		<start-class>fr.projectfactory.api.ApiApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -110,6 +110,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
