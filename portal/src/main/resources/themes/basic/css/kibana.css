@@ -9,3 +9,7 @@
 body {
 	padding-top: 37px !important;
 }
+
+#platform-toolbar-wrapper {
+	box-shadow: 0 0 10px black;
+}
