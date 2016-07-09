@@ -1,7 +1,7 @@
 /*
  * Basic Project Factory Theme - Redmine
  * @author Fabien CRESPEL <fabien@crespel.net>
- * @version 1.0 (2013-12-22)
+ * @version 1.1 (2016-07-09)
  */
 
 @import url(common.css);
@@ -25,6 +25,7 @@ h1, h2, h3, h4 {
 #wrapper {
 	margin: 37px 50px 10px 50px;
 	background-color: transparent;
+	overflow: visible;
 }
 
 #main {
@@ -95,7 +96,12 @@ h1, h2, h3, h4 {
 	right: 300px;
 	bottom: -1px;
 	height: 26px;
-	margin-right: 0;
+	margin-right: 10px;
+	width: auto;
+}
+
+#main-menu ul {
+	overflow: hidden;
 }
 
 #main-menu li a {
@@ -128,48 +134,29 @@ h1, h2, h3, h4 {
 	color: #555555;
 }
 
-#main-menu .submenu {
-	display: none;
-	position: relative;
-}
-#main-menu .submenu.shown {
-	display: block;
+#main-menu li a.new-object {
+	background-color: #f6f6f6;
 }
 
-#main-menu .submenu:hover > a {
-	background-image: none;
-	padding-bottom: 5px;
-	border-bottom: none;
-}
-
-#main-menu .submenu ul {
-	display: none;
-	position: absolute;
-	top: 26px;
-	right: 0;
-	width: 150px;
-	background-color: #F6F6F6;
+#main-menu .menu-children {
+	background-color: #f6f6f6;
 	border-left: 1px solid #cccccc;
 	border-right: 1px solid #cccccc;
 	border-bottom: 1px solid #cccccc;
 }
-#main-menu .submenu:hover ul {
-	display: block;
-}
 
-#main-menu .submenu ul li {
-	display: block;
-	float: none;
-	margin: 0;
-}
-
-#main-menu .submenu ul li a {
-	background-color: transparent;
-	background-image: none;
+#main-menu .menu-children li a {
+	color: #555555;
+	background-color: #f6f6f6;
 	border: none;
 }
-#main-menu .submenu ul li a:hover {
+#main-menu .menu-children li a:hover {
+	color: black;
 	background-color: white;
+}
+
+#main-menu .tabs-buttons {
+	right: 0;
 }
 
 
@@ -351,4 +338,28 @@ ul.projects li.root {
 #footer {
 	background-color: transparent;
 	border-top: none;
+}
+
+
+/*** Responsive design *******************************************************/
+
+
+@media all and (max-width: 899px) {
+	#wrapper {
+		margin-top: 37px !important;
+	}
+	
+	#header {
+		background-color: #333 !important;
+	}
+	
+	.flyout-menu {
+		background-color: #333 !important;
+	}
+	
+	.flyout-menu h3 {
+		background-color: #555 !important;
+		border-top-color: #666 !important;
+		border-bottom-color: #666 !important;
+	}
 }
