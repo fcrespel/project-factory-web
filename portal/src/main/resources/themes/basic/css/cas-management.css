@@ -1,0 +1,14 @@
+/*
+ * Basic Project Factory Theme - CAS Management
+ * @author Fabien CRESPEL <fabien@crespel.net>
+ */
+
+@import url(common.css);
+
+body {
+	padding-top: 37px;
+}
+
+#platform-toolbar-wrapper {
+	box-shadow: 0 0 10px black;
+}
