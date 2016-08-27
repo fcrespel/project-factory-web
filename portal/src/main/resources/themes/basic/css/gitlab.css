@@ -5,12 +5,22 @@
 
 @import url(common.css);
 
-body {
-	margin-top: 37px !important;
+header.navbar-gitlab {
+	top: 37px;
 }
 
-header.navbar-gitlab,
-.page-with-sidebar .sidebar-wrapper,
-.collapse-nav a {
-	margin-top: 37px;
+.page-with-sidebar {
+	padding-top: 87px !important;
+}
+
+.page-with-sidebar .sidebar-wrapper {
+	top: 37px !important;
+}
+
+.layout-nav {
+	top: 87px !important;
+}
+
+.page-with-layout-nav .right-sidebar {
+	top: 139px !important;
 }
