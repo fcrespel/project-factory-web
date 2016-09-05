@@ -24,7 +24,7 @@
 
 		<!-- Service tabs -->
 		<ul class="tabs">
-			<?php $currentTab = isset($_GET['tab']) && !empty($_GET['tab']) ? $_GET['tab'] : 'home'; ?>
+			<?php $currentTab = isset($_GET['tab']) ? $_GET['tab'] : ''; ?>
 			<li id="home" class="<?php echo ('home' == $currentTab) ? 'active' : '' ?>">
 				<a href="/portal/" title="Portail" target="_top">Portail</a>
 			</li>

@@ -9,7 +9,7 @@
 <title><?php echo $GLOBALS['portal-config']['title']; ?></title>
 <link rel="stylesheet" type="text/css" href="/portal/lib/bootstrap-3.3.4/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/portal/themes/current/css/portal.css" />
-<script type="text/javascript" src="/portal/toolbar.php?format=js"></script>
+<script type="text/javascript" src="/portal/toolbar.php?format=js&amp;tab=home"></script>
 </head>
 
 <body>

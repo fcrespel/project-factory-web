@@ -58,6 +58,17 @@ a, a:link, a:visited {
 	box-shadow: 0 0 10px #999999;
 }
 
+#content.error {
+	margin-top: 60px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+#content h1 {
+	margin: 10px 0 40px 0;
+}
+
 #content h2 {
 	margin: 0 0 20px 0;
 	font-size: 28px;
