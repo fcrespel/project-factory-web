@@ -35,7 +35,7 @@ public class SwaggerConfig {
 		return new ApiInfoBuilder()
 				.title("Platform API")
 				.description("Platform management REST API. All operations are exposed as JSON and require an OAuth 2.0 Access Token granted by the Central Authentication Service.")
-				.contact("iT-Toolbox (contact@it-toolbox.fr)")
+				.contact("Project Factory team and contributors (www.project-factory.fr)")
 				.version("1.0")
 				.build();
 	}
