@@ -43,6 +43,7 @@ h1, h2, h3, h4 {
 #page-head {
 	margin-left: 50px;
 	margin-right: 50px;
+	position: relative;
 }
 
 /* Top panel containing the logo, search box and login box */
@@ -90,14 +91,21 @@ h1, h2, h3, h4 {
 }
 
 /* Breadcrumb bar */
-#breadcrumbBar,
-#breadcrumbBar .top-sticker-inner {
+#breadcrumbBar {
+	position: absolute;
+	left: 0;
+	right: 0;
 	background-color: transparent;
 }
+
 #breadcrumbBar .top-sticker {
 	width: auto !important;
 	right: 50px;
 	margin-right: 300px;
+}
+
+#breadcrumbBar .top-sticker-inner {
+	background-color: transparent;
 }
 
 #breadcrumbBar #breadcrumbs {
@@ -132,18 +140,19 @@ h1, h2, h3, h4 {
 /* Main content */
 /****************/
 
-#page-body {
-	margin-top: -30px;
-}
-
 #main-panel {
-	margin: 0 350px 80px 50px;
+	margin: 0 50px 80px 50px;
 	padding: 50px 20px 20px 20px;
 	min-height: 600px;
 	background-color: white;
 	border: 1px solid #cccccc;
 	box-shadow: 0 0 10px #999999;
 	overflow: auto;
+}
+
+body.two-column #main-panel {
+	margin-left: 50px;
+	margin-right: 350px;
 }
 
 #main-panel h1 {
@@ -171,6 +180,11 @@ h1, h2, h3, h4 {
 	margin-right: 320px;
 }
 
+#jenkins .jenkins-config table .bottom-sticker,
+#jenkins .jenkins-config table #bottom-sticker {
+	right: auto;
+}
+
 
 /**************/
 /* Side panel */
@@ -186,6 +200,10 @@ h1, h2, h3, h4 {
 	box-shadow: 0 0 10px #999999;
 }
 
+body.two-column #side-panel {
+	width: 280px;
+}
+
 #tasks .task {
 	font-size: 11px;
 }
@@ -195,7 +213,7 @@ h1, h2, h3, h4 {
 /* Responsive design */
 /*********************/
 
-@media (max-width: 991px) {
+@media (max-width: 1169px) {
 	#page-head {
 		margin-left: 20px;
 		margin-right: 20px;
@@ -204,6 +222,10 @@ h1, h2, h3, h4 {
 		right: 20px;
 	}
 	#main-panel {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	body.two-column #main-panel {
 		margin-left: 20px;
 		margin-right: 320px;
 	}
@@ -219,7 +241,7 @@ h1, h2, h3, h4 {
 	}
 }
 
-@media (max-width: 767px) {
+@media (max-width: 970px) {
 	#page-head {
 		margin-left: 0;
 		margin-right: 0;
@@ -229,13 +251,17 @@ h1, h2, h3, h4 {
 		margin-right: 0;
 	}
 	#page-body {
-		margin-top: 0;
+		margin-top: 30px;
 	}
 	#main-panel {
 		margin-left: 0;
 		margin-right: 0;
 		padding-top: 20px;
 		min-height: 0;
+	}
+	body.two-column #main-panel {
+		margin-left: 0;
+		margin-right: 0;
 	}
 	#main-panel .behavior-loading {
 		left: 0;
@@ -246,6 +272,9 @@ h1, h2, h3, h4 {
 		width: 100%;
 		margin-right: 0;
 		margin-bottom: 20px;
+	}
+	body.two-column #side-panel {
+		width: 100%;
 	}
 	#bottom-sticker, .bottom-sticker {
 		margin-right: 0;
