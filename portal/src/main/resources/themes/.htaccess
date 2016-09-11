@@ -29,8 +29,13 @@
 </Files>
 
 # Configure cache on static resources
-<FilesMatch "\.(gif|jpe?g|png|css|js)$">
+<FilesMatch "\.(gif|jpe?g|png|svg|eot|ttf|woff)$">
 	ExpiresActive On
 	ExpiresDefault A86400
 	Header merge Cache-Control "must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(css|js|xsl)$">
+	ExpiresActive On
+	ExpiresDefault A86400
+	Header merge Cache-Control "no-cache"
 </FilesMatch>
