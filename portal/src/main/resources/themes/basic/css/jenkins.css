@@ -94,7 +94,7 @@ h1, h2, h3, h4 {
 #breadcrumbBar {
 	position: absolute;
 	left: 0;
-	right: 0;
+	right: 300px;
 	background-color: transparent;
 }
 
@@ -245,6 +245,9 @@ body.two-column #side-panel {
 	#page-head {
 		margin-left: 0;
 		margin-right: 0;
+	}
+	#breadcrumbBar {
+		right: 0;
 	}
 	#breadcrumbBar .top-sticker {
 		right: 0;
