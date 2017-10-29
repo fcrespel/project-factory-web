@@ -26,11 +26,11 @@
 	<parent>
 		<groupId>fr.project-factory.web</groupId>
 		<artifactId>web</artifactId>
-		<version>3.3.0</version>
+		<version>3.3.1</version>
 	</parent>
 
 	<artifactId>manager</artifactId>
-	<version>3.3.0</version>
+	<version>3.3.1</version>
 	<packaging>war</packaging>
 
 	<name>Project Factory Web Manager</name>
