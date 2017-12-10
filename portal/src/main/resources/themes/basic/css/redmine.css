@@ -307,6 +307,11 @@ tr.priority-lowest a { color: #559; }
 tr.odd.priority-lowest td, tr.even.priority-lowest td { border-color: #add7f3; }
 
 /* Projects */
+#projects-index {
+	column-width: auto;
+	-webkit-column-width: auto;
+	-moz-column-width: auto;
+}
 ul.projects li.root {
 	list-style-type: none;
 	margin-bottom: 1em;
