@@ -17,3 +17,12 @@ header.navbar-gitlab.navbar-gitlab {
 .page-with-sidebar .content-wrapper.page-with-new-nav {
     margin-top: 77px;
 }
+
+.layout-page .nav-sidebar,
+.layout-page .right-sidebar {
+	top: 77px;
+}
+
+.layout-page .content-wrapper {
+    margin-top: 77px;
+}
