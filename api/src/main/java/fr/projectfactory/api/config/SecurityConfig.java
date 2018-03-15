@@ -2,41 +2,44 @@ package fr.projectfactory.api.config;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.passay.CharacterCharacteristicsRule;
-import org.passay.DigitCharacterRule;
+import org.passay.CharacterRule;
+import org.passay.EnglishCharacterData;
 import org.passay.LengthRule;
-import org.passay.LowercaseCharacterRule;
 import org.passay.PasswordValidator;
 import org.passay.Rule;
-import org.passay.SpecialCharacterRule;
-import org.passay.UppercaseCharacterRule;
 import org.passay.UsernameRule;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cloud.security.oauth2.resource.ResourceServerProperties;
-import org.springframework.cloud.security.oauth2.resource.UserInfoTokenServices;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoRestTemplateFactory;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
-import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
-import fr.projectfactory.api.security.AuthorizationProperties;
-import fr.projectfactory.api.security.ResourceServerTokenServicesWrapper;
+import fr.projectfactory.api.security.AuthoritiesExtractorImpl;
+import fr.projectfactory.api.security.PrincipalExtractorImpl;
+import lombok.Data;
 
 @Configuration
 public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
-	@Autowired
-	private ResourceServerProperties sso;
+	public static final String OAUTH_RESOURCE_ID = "platform-api";
 
-	@Autowired(required = false)
-	@Qualifier("userInfoRestTemplate")
-	private OAuth2RestOperations restTemplate;
+	@Override
+	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+		resources.resourceId(OAUTH_RESOURCE_ID);
+	}
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -49,7 +52,10 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 					.antMatchers("/", "/**/*.html", "/**/*.css", "/**/*.js", "/webjars/**").permitAll()
 					.antMatchers("/management/health", "/management/info").permitAll()
 					.antMatchers("/management/").hasRole("ADMIN")
-					.anyRequest().authenticated();
+					.anyRequest().hasRole("USER")
+					.and()
+				.httpBasic()
+					.realmName(OAUTH_RESOURCE_ID);
 	}
 
 	@Bean
@@ -57,22 +63,46 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 		return new AuthorizationProperties();
 	}
 
+	@Data
+	@ConfigurationProperties(prefix = "authorization")
+	public class AuthorizationProperties {
+		private String userAttribute;
+		private String userAuthorityPrefix;
+		private boolean userAuthorityUppercase;
+		private String groupAttribute;
+		private String groupAuthorityPrefix;
+		private boolean groupAuthorityUppercase;
+		private Set<String> defaultAuthorities;
+		private Map<String, List<String>> authorityMapping;
+	}
+
 	@Bean
-	public ResourceServerTokenServices resourceServerTokenServicesWrapper(AuthorizationProperties authorization) {
-		ResourceServerTokenServicesWrapper services = new ResourceServerTokenServicesWrapper();
-		services.setResourceServerTokenServices(userInfoTokenServices());
-		services.setUserAttribute(authorization.getUserAttribute());
-		services.setUserAuthorityMapper(userAuthorityMapper(authorization));
-		services.setGroupAttribute(authorization.getGroupAttribute());
-		services.setGroupAuthorityMapper(groupAuthorityMapper(authorization));
-		services.setAuthorityMapping(authorization.getAuthorityMapping());
+	public ResourceServerTokenServices userInfoTokenServices(ResourceServerProperties resource, UserInfoRestTemplateFactory restTemplateFactory, PrincipalExtractor principalExtractor, AuthoritiesExtractor authoritiesExtractor) {
+		UserInfoTokenServices services = new UserInfoTokenServices(resource.getUserInfoUri(), resource.getClientId());
+		services.setRestTemplate(restTemplateFactory.getUserInfoRestTemplate());
+		services.setTokenType(resource.getTokenType());
+		services.setPrincipalExtractor(principalExtractor);
+		services.setAuthoritiesExtractor(authoritiesExtractor);
 		return services;
 	}
 
-	public ResourceServerTokenServices userInfoTokenServices() {
-		UserInfoTokenServices services = new UserInfoTokenServices(sso.getUserInfoUri(), sso.getClientId());
-		services.setRestTemplate(restTemplate);
-		return services;
+	@Bean
+	public PrincipalExtractor principalExtractor(AuthorizationProperties authorization) {
+		PrincipalExtractorImpl extractor = new PrincipalExtractorImpl();
+		extractor.setUsernameAttribute(authorization.getUserAttribute());
+		return extractor;
+	}
+
+	@Bean
+	public AuthoritiesExtractor authoritiesExtractor(AuthorizationProperties authorization) {
+		AuthoritiesExtractorImpl extractor = new AuthoritiesExtractorImpl();
+		extractor.setUserAttribute(authorization.getUserAttribute());
+		extractor.setUserAuthorityMapper(userAuthorityMapper(authorization));
+		extractor.setGroupAttribute(authorization.getGroupAttribute());
+		extractor.setGroupAuthorityMapper(groupAuthorityMapper(authorization));
+		extractor.setDefaultAuthorities(authorization.getDefaultAuthorities());
+		extractor.setAuthorityMapping(authorization.getAuthorityMapping());
+		return extractor;
 	}
 
 	public GrantedAuthoritiesMapper userAuthorityMapper(AuthorizationProperties authorization) {
@@ -107,10 +137,10 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 		UsernameRule usernameRule = new UsernameRule(true, true);
 		CharacterCharacteristicsRule charRule = new CharacterCharacteristicsRule();
 		charRule.setNumberOfCharacteristics(3);
-		charRule.getRules().add(new UppercaseCharacterRule());
-		charRule.getRules().add(new LowercaseCharacterRule());
-		charRule.getRules().add(new DigitCharacterRule());
-		charRule.getRules().add(new SpecialCharacterRule());
+		charRule.getRules().add(new CharacterRule(EnglishCharacterData.UpperCase));
+		charRule.getRules().add(new CharacterRule(EnglishCharacterData.LowerCase));
+		charRule.getRules().add(new CharacterRule(EnglishCharacterData.Digit));
+		charRule.getRules().add(new CharacterRule(EnglishCharacterData.Special));
 		return Arrays.asList(lengthRule, usernameRule, charRule);
 	}
 

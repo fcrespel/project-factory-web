@@ -17,7 +17,7 @@
 		</triggeringPolicy>
 	</appender>
 
-	<logger name="org.springframework.boot.actuate.audit.listener" level="INFO">
+	<logger name="org.springframework.boot.actuate.audit.listener" level="DEBUG">
 		<appender-ref ref="AUDIT" />
 	</logger>
 </configuration>

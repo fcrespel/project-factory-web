@@ -20,18 +20,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import springfox.documentation.annotations.ApiIgnore;
-
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-
 import fr.projectfactory.api.model.PasswordChange;
 import fr.projectfactory.api.model.User;
 import fr.projectfactory.api.service.DirectoryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping(value = "/v1/account", produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(value = "account", description = "Account management")
+@Api(tags = "account", description = "Account management")
 public class AccountController implements ApplicationEventPublisherAware {
 
 	@Autowired

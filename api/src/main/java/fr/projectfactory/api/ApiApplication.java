@@ -2,16 +2,23 @@ package fr.projectfactory.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.security.oauth2.resource.EnableOAuth2Resource;
-import org.springframework.ldap.repository.config.EnableLdapRepositories;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.data.ldap.repository.config.EnableLdapRepositories;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
 @EnableLdapRepositories
-@EnableOAuth2Resource
-public class ApiApplication {
+@EnableResourceServer
+public class ApiApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(ApiApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);

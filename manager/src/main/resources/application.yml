@@ -1,3 +1,14 @@
+spring:
+  application:
+    name: platform-manager
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  jmx:
+    default-domain: fr.project-factory.web.manager
+  resources:
+    cache-period: 600
 server:
   port: 8091
   contextPath: /manager
@@ -6,14 +17,9 @@ management:
 security:
   user:
     name: root
-    password: bsgMNvYJapj9EZ7N
+    password: changeit
     role: USER,ADMIN
-spring:
   oauth2:
-    sso:
-      home:
-        secure: true
-        path: /
     client:
       accessTokenUri: https://dev.project-factory.fr/cas/oauth2.0/accessToken
       userAuthorizationUri: https://dev.project-factory.fr/cas/oauth2.0/authorize
@@ -24,10 +30,15 @@ spring:
     resource:
       userInfoUri: https://dev.project-factory.fr/cas/oauth2.0/profile
       preferTokenInfo: false
-zuul:
-  routes:
-    resource:
-      path: /v1/**
-      url: http://localhost:8090/api/v1
 logging:
   path: logs
+  level:
+    org.springframework.security.oauth2: debug
+zuul:
+  host:
+    connect-timeout-millis: 5000
+    socket-timeout-millis: 60000
+  routes:
+    api-v1:
+      path: /v1/**
+      url: http://localhost:8090/api/v1
