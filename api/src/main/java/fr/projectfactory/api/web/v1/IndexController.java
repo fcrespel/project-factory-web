@@ -4,8 +4,8 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import springfox.documentation.annotations.ApiIgnore;
@@ -15,7 +15,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @ApiIgnore
 public class IndexController {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/")
+	@GetMapping("/")
 	public ResourceSupport getResources() {
 		ResourceSupport res = new ResourceSupport();
 		res.add(linkTo(IndexController.class).withSelfRel());

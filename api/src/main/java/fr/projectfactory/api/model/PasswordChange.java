@@ -9,7 +9,7 @@ public class PasswordChange {
 
 	@NotNull
 	private String oldPassword;
-	
+
 	@NotNull
 	private String newPassword;
 

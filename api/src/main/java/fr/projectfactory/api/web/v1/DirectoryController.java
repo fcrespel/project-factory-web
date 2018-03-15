@@ -14,10 +14,11 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.projectfactory.api.model.Group;
@@ -28,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
-@RequestMapping(value = "/v1/directory", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/v1/directory", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "directory", description = "User and group directory management")
 public class DirectoryController implements ApplicationEventPublisherAware {
 
@@ -42,7 +43,7 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 		this.applicationEventPublisher = applicationEventPublisher;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	@ApiIgnore
 	public ResourceSupport getResources() {
 		ResourceSupport res = new ResourceSupport();
@@ -52,22 +53,22 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 		return res;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/users")
-	@ApiOperation(value = "Get all users")
+	@GetMapping("/users")
+	@ApiOperation("Get all users")
 	public Collection<User> getUsers() {
 		return directory.getUsers();
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/users/{userName}")
-	@ApiOperation(value = "Get a single user by its userName")
+	@GetMapping("/users/{userName}")
+	@ApiOperation("Get a single user by its userName")
 	public User getUser(@PathVariable String userName) {
 		User u = directory.getUser(userName);
 		u.add(linkTo(methodOn(DirectoryController.class).getUser(userName)).withSelfRel());
 		return u;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/users/{userName}")
-	@ApiOperation(value = "Update a single user by its userName")
+	@PutMapping("/users/{userName}")
+	@ApiOperation("Update a single user by its userName")
 	public User saveUser(Principal p, @PathVariable String userName, @Valid @RequestBody User user) {
 		User u = directory.saveUser(userName, user);
 		u.add(linkTo(methodOn(DirectoryController.class).saveUser(p, userName, user)).withSelfRel());
@@ -75,22 +76,22 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 		return u;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/groups")
-	@ApiOperation(value = "Get all groups")
+	@GetMapping("/groups")
+	@ApiOperation("Get all groups")
 	public Collection<Group> getGroups() {
 		return directory.getGroups();
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/groups/{name}")
-	@ApiOperation(value = "Get a single group by name")
+	@GetMapping("/groups/{name}")
+	@ApiOperation("Get a single group by name")
 	public Group getGroup(@PathVariable String name) {
 		Group g = directory.getGroup(name);
 		g.add(linkTo(methodOn(DirectoryController.class).getGroup(name)).withSelfRel());
 		return g;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/groups/{name}")
-	@ApiOperation(value = "Update a single group by its name")
+	@PutMapping("/groups/{name}")
+	@ApiOperation("Update a single group by its name")
 	public Group saveGroup(Principal p, @PathVariable String name, @Valid @RequestBody Group group) {
 		Group g = directory.saveGroup(name, group);
 		g.add(linkTo(methodOn(DirectoryController.class).saveGroup(p, name, group)).withSelfRel());

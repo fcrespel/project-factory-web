@@ -15,9 +15,10 @@ import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.projectfactory.api.model.PasswordChange;
@@ -28,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
-@RequestMapping(value = "/v1/account", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/v1/account", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "account", description = "Account management")
 public class AccountController implements ApplicationEventPublisherAware {
 
@@ -42,7 +43,7 @@ public class AccountController implements ApplicationEventPublisherAware {
 		this.applicationEventPublisher = applicationEventPublisher;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	@ApiIgnore
 	public ResourceSupport getResources() {
 		ResourceSupport res = new ResourceSupport();
@@ -52,8 +53,8 @@ public class AccountController implements ApplicationEventPublisherAware {
 		return res;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/principal")
-	@ApiOperation(value = "Get the authenticated principal")
+	@GetMapping("/principal")
+	@ApiOperation("Get the authenticated principal")
 	public Authentication getPrincipal(Principal p) {
 		if (p instanceof OAuth2Authentication) {
 			return ((OAuth2Authentication) p).getUserAuthentication();
@@ -62,16 +63,16 @@ public class AccountController implements ApplicationEventPublisherAware {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/user")
-	@ApiOperation(value = "Get the authenticated user")
+	@GetMapping("/user")
+	@ApiOperation("Get the authenticated user")
 	public User getUser(Principal p) {
 		User u = directory.getUser(p.getName());
 		u.add(linkTo(methodOn(AccountController.class).getUser(p)).withSelfRel());
 		return u;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/user")
-	@ApiOperation(value = "Update the authenticated user")
+	@PostMapping("/user")
+	@ApiOperation("Update the authenticated user")
 	public User saveUser(Principal p, @Valid @RequestBody User user) {
 		User u = directory.saveUser(p.getName(), user);
 		u.add(linkTo(methodOn(AccountController.class).saveUser(p, user)).withSelfRel());
@@ -79,8 +80,8 @@ public class AccountController implements ApplicationEventPublisherAware {
 		return u;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/password")
-	@ApiOperation(value = "Change the authenticated user password")
+	@PostMapping("/password")
+	@ApiOperation("Change the authenticated user password")
 	public void changePassword(Principal p, @Valid @RequestBody PasswordChange passwordChange) {
 		directory.saveUserPassword(p.getName(), passwordChange.getOldPassword(), passwordChange.getNewPassword());
 		applicationEventPublisher.publishEvent(new AuditApplicationEvent(p.getName(), "ACCOUNT_CHANGE_PASSWORD"));

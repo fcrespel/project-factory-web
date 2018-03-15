@@ -20,7 +20,7 @@ public class LdapConfig {
 	public LdapTemplate ldapTemplate(LdapContextSource contextSource) {
 		return new LdapTemplate(contextSource);
 	}
-	
+
 	@Bean
 	public BaseLdapPathBeanPostProcessor baseLdapPathBeanPostProcessor() {
 		return new BaseLdapPathBeanPostProcessor();
