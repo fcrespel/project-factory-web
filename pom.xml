@@ -90,6 +90,8 @@
 		<!-- Webjars versions -->
 		<angularjs.version>1.5.11</angularjs.version>
 		<angular-busy.version>4.1.4</angular-busy.version>
+		<angular-dynamic-locale.version>0.1.32</angular-dynamic-locale.version>
+		<angular-translate.version>2.17.0</angular-translate.version>
 		<angular-ui-bootstrap.version>2.5.0</angular-ui-bootstrap.version>
 		<bootstrap.version>3.3.7</bootstrap.version>
 		<font-awesome.version>4.7.0</font-awesome.version>
@@ -164,6 +166,22 @@
 				<groupId>org.webjars.bower</groupId>
 				<artifactId>angular-busy</artifactId>
 				<version>${angular-busy.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.webjars.bower</groupId>
+						<artifactId>angular</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.bower</groupId>
+				<artifactId>angular-dynamic-locale</artifactId>
+				<version>${angular-dynamic-locale.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.bower</groupId>
+				<artifactId>angular-translate</artifactId>
+				<version>${angular-translate.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.webjars.bower</groupId>

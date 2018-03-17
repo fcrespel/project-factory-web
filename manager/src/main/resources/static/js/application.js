@@ -3,6 +3,7 @@ angular
 	.module('pf-manager', [
 		'ngMessages', 'ngResource', 'ngRoute',
 		'ui.bootstrap',
+		'pascalprecht.translate', 'tmh.dynamicLocale',
 		'cgBusy'
 	])
 
@@ -79,6 +80,33 @@ angular
 					return $q.reject(rejection);
 				}
 			};
+		});
+	} ])
+
+	// Translations config
+	.config([ '$translateProvider', function($translateProvider) {
+		$translateProvider.registerAvailableLanguageKeys(['en', 'fr'], {
+			'en_*': 'en',
+			'fr_*': 'fr'
+		});
+		$translateProvider.fallbackLanguage('en');
+		$translateProvider.determinePreferredLanguage();
+	} ])
+
+	// Dynamic locale config
+	.config([ 'tmhDynamicLocaleProvider', function(tmhDynamicLocaleProvider) {
+		tmhDynamicLocaleProvider.localeLocationPattern('webjars/angularjs/1.5.11/i18n/angular-locale_{{locale}}.js');
+	} ])
+
+	// Dynamic locale sync with translation
+	.run([ '$rootScope', '$translate', 'tmhDynamicLocale', function($rootScope, $translate, tmhDynamicLocale) {
+		$translate.onReady(function(arg) {
+			// Initial locale change based on detected/stored language
+			tmhDynamicLocale.set($translate.use());
+		});
+		$rootScope.$on('$localeChangeSuccess', function(event, locale) {
+			// Propagate locale change to $translate
+			$translate.use(locale);
 		});
 	} ])
 

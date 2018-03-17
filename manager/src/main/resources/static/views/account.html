@@ -1,93 +1,93 @@
-<h2>Mon compte</h2>
+<h2>{{ 'MY_ACCOUNT' | translate }}</h2>
 
-<p class="text-danger" data-ng-hide="user.userName || isLoading">Données utilisateur indisponibles.
-  <a href="#/account" data-ng-click="getUser()">Cliquez ici pour réessayer.</a></p>
+<p class="text-danger" data-ng-hide="user.userName || isLoading">{{ 'USER_UNAVAILABLE' | translate }}.
+  <a href="#/account" data-ng-click="getUser()">{{ 'ERROR_RETRY' | translate }}</a>.</p>
 
 <fieldset data-ng-show="user.userName">
-  <legend>Profil utilisateur</legend>
+  <legend>{{ 'USER_PROFILE' | translate }}</legend>
   <form name="userForm" class="form-horizontal">
     <div class="form-group">
-      <label for="userName" class="col-sm-4 col-md-3 control-label">Identifiant</label>
+      <label for="userName" class="col-sm-4 col-md-3 control-label">{{ 'USER_USERNAME' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="text" class="form-control" name="userName" id="userName" data-ng-model="user.userName" readonly />
       </div>
     </div>
     <div class="form-group" data-ng-class="{ 'has-error': userForm.firstName.$touched && userForm.firstName.$invalid }">
-      <label for="firstName" class="col-sm-4 col-md-3 control-label">Prénom</label>
+      <label for="firstName" class="col-sm-4 col-md-3 control-label">{{ 'USER_FIRSTNAME' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="text" class="form-control" name="firstName" id="firstName" data-ng-model="user.firstName" required />
       </div>
       <div class="col-sm-2 col-md-4 col-lg-5" data-ng-messages="userForm.firstName.$error" data-ng-show="userForm.firstName.$touched && userForm.firstName.$invalid">
-        <p class="help-block text-danger" data-ng-message="required">Ce champ est requis</p>
+        <p class="help-block text-danger" data-ng-message="required">{{ 'ERROR_REQUIRED' | translate }}</p>
       </div>
     </div>
     <div class="form-group" data-ng-class="{ 'has-error': userForm.lastName.$touched && userForm.lastName.$invalid }">
-      <label for="lastName" class="col-sm-4 col-md-3 control-label">Nom de famille</label>
+      <label for="lastName" class="col-sm-4 col-md-3 control-label">{{ 'USER_LASTNAME' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="text" class="form-control" name="lastName" id="lastName" data-ng-model="user.lastName" required />
       </div>
       <div class="col-sm-2 col-md-4 col-lg-5" data-ng-messages="userForm.lastName.$error" data-ng-show="userForm.lastName.$touched && userForm.lastName.$invalid">
-        <p class="help-block text-danger" data-ng-message="required">Ce champ est requis</p>
+        <p class="help-block text-danger" data-ng-message="required">{{ 'ERROR_REQUIRED' | translate }}</p>
       </div>
     </div>
     <div class="form-group" data-ng-class="{ 'has-error': userForm.mail.$touched && userForm.mail.$invalid }">
-      <label for="mail" class="col-sm-4 col-md-3 control-label">Adresse e-mail</label>
+      <label for="mail" class="col-sm-4 col-md-3 control-label">{{ 'USER_EMAIL' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="email" class="form-control" name="mail" id="mail" data-ng-model="user.mail" required />
       </div>
       <div class="col-sm-2 col-md-4 col-lg-5" data-ng-messages="userForm.mail.$error" data-ng-show="userForm.mail.$touched && userForm.mail.$invalid">
-        <p class="help-block text-danger" data-ng-message="required">Ce champ est requis</p>
-        <p class="help-block text-danger" data-ng-message="email">Adresse e-mail invalide</p>
+        <p class="help-block text-danger" data-ng-message="required">{{ 'ERROR_REQUIRED' | translate }}</p>
+        <p class="help-block text-danger" data-ng-message="email">{{ 'ERROR_EMAIL' | translate }}</p>
       </div>
     </div>
     <div class="form-group" data-ng-show="user.organization">
-      <label for="organization" class="col-sm-4 col-md-3 control-label">Société</label>
+      <label for="organization" class="col-sm-4 col-md-3 control-label">{{ 'USER_COMPANY' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="text" class="form-control" name="organization" id="organization" data-ng-model="user.organization" readonly />
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-4 col-md-offset-3 col-sm-6 col-md-5 col-lg-4">
-        <button type="submit" class="btn btn-default" data-ng-disabled="userForm.$invalid" data-ng-click="saveUser()">Enregistrer</button>
+        <button type="submit" class="btn btn-default" data-ng-disabled="userForm.$invalid" data-ng-click="saveUser()">{{ 'SAVE' | translate }}</button>
       </div>
     </div>
   </form>
 </fieldset>
 
 <fieldset data-ng-show="user.userName && user.hasPassword">
-  <legend>Mot de passe</legend>
+  <legend>{{ 'PASSWORD' | translate }}</legend>
   <form name="passwordForm" class="form-horizontal">
     <div class="form-group" data-ng-class="{ 'has-error': passwordForm.oldPassword.$touched && passwordForm.oldPassword.$invalid }">
-      <label for="oldPassword" class="col-sm-4 col-md-3 control-label">Mot de passe actuel</label>
+      <label for="oldPassword" class="col-sm-4 col-md-3 control-label">{{ 'PASSWORD_CURRENT' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="password" class="form-control" name="oldPassword" id="oldPassword" data-ng-model="passwordChange.oldPassword" autocomplete="off" required />
       </div>
       <div class="col-sm-2 col-md-4 col-lg-5" data-ng-messages="passwordForm.oldPassword.$error" data-ng-show="passwordForm.oldPassword.$touched && passwordForm.oldPassword.$invalid">
-        <p class="help-block text-danger" data-ng-message="required">Ce champ est requis</p>
+        <p class="help-block text-danger" data-ng-message="required">{{ 'ERROR_REQUIRED' | translate }}</p>
       </div>
     </div>
     <div class="form-group" data-ng-class="{ 'has-error': passwordForm.newPassword.$touched && passwordForm.newPassword.$invalid }">
-      <label for="newPassword" class="col-sm-4 col-md-3 control-label">Nouveau mot de passe</label>
+      <label for="newPassword" class="col-sm-4 col-md-3 control-label">{{ 'PASSWORD_NEW' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="password" class="form-control" name="newPassword" id="newPassword" data-ng-model="passwordChange.newPassword" autocomplete="off" required />
       </div>
       <div class="col-sm-2 col-md-4 col-lg-5" data-ng-messages="passwordForm.newPassword.$error" data-ng-show="passwordForm.newPassword.$touched && passwordForm.newPassword.$invalid">
-        <p class="help-block text-danger" data-ng-message="required">Ce champ est requis</p>
+        <p class="help-block text-danger" data-ng-message="required">{{ 'ERROR_REQUIRED' | translate }}</p>
       </div>
     </div>
     <div class="form-group" data-ng-class="{ 'has-error': passwordForm.newPasswordConfirm.$touched && passwordForm.newPasswordConfirm.$invalid }">
-      <label for="newPasswordConfirm" class="col-sm-4 col-md-3 control-label">Confirmation du mot de passe</label>
+      <label for="newPasswordConfirm" class="col-sm-4 col-md-3 control-label">{{ 'PASSWORD_CONFIRM' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
         <input type="password" class="form-control" name="newPasswordConfirm" id="newPasswordConfirm" data-ng-model="passwordChange.newPasswordConfirm" autocomplete="off" required data-compare-to="passwordChange.newPassword" />
       </div>
       <div class="col-sm-2 col-md-4 col-lg-5" data-ng-messages="passwordForm.newPasswordConfirm.$error" data-ng-show="passwordForm.newPasswordConfirm.$touched && passwordForm.newPasswordConfirm.$invalid">
-        <p class="help-block text-danger" data-ng-message="required">Ce champ est requis</p>
-        <p class="help-block text-danger" data-ng-message="compareTo">Les mots de passe ne correspondent pas</p>
+        <p class="help-block text-danger" data-ng-message="required">{{ 'ERROR_REQUIRED' | translate }}</p>
+        <p class="help-block text-danger" data-ng-message="compareTo">{{ 'ERROR_PASSWORD_MATCH' | translate }}</p>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-4 col-md-offset-3 col-sm-6 col-md-5 col-lg-4">
-        <button type="submit" class="btn btn-default" data-ng-disabled="passwordForm.$invalid" data-ng-click="changePassword()">Modifier le mot de passe</button>
+        <button type="submit" class="btn btn-default" data-ng-disabled="passwordForm.$invalid" data-ng-click="changePassword()">{{ 'PASSWORD_CHANGE' | translate }}</button>
       </div>
     </div>
   </form>

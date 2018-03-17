@@ -1,6 +1,6 @@
 angular
 	.module('pf-manager')
-	.controller('AccountController', function($scope, AccountService, AlertService) {
+	.controller('AccountController', function($scope, $translate, AccountService, AlertService) {
 
 	$scope.init = function() {
 		$scope.user = {};
@@ -14,13 +14,17 @@ angular
 
 	$scope.saveUser = function() {
 		$scope.user = AccountService.saveUser($scope.user, function() {
-			AlertService.showSuccess('Profil utilisateur mis à jour avec succès.');
+			$translate('USER_UPDATED').then(function(text) {
+				AlertService.showSuccess(text);
+			});
 		});
 	};
 
 	$scope.changePassword = function() {
 		AccountService.changePassword($scope.passwordChange.oldPassword, $scope.passwordChange.newPassword, function() {
-			AlertService.showSuccess('Mot de passe mis à jour avec succès.');
+			$translate('PASSWORD_UPDATED').then(function(text) {
+				AlertService.showSuccess(text);
+			});
 			$scope.passwordChange = {};
 			$scope.passwordForm.$setPristine();
 			$scope.passwordForm.$setUntouched();

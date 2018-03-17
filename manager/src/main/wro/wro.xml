@@ -17,6 +17,8 @@
 		<js minimize="false">/webjars/angularjs/1.5.11/angular-resource.min.js</js>
 		<js minimize="false">/webjars/angularjs/1.5.11/angular-route.min.js</js>
 		<js minimize="false">/webjars/angular-busy/4.1.4/dist/angular-busy.min.js</js>
+		<js minimize="false">/webjars/angular-dynamic-locale/0.1.32/dist/tmhDynamicLocale.min.js</js>
+		<js minimize="false">/webjars/angular-translate/2.17.0/angular-translate.min.js</js>
 		<js>/webjars/angular-ui-bootstrap/2.5.0/dist/ui-bootstrap-tpls.js</js>
 		<js minimize="false">/webjars/bootstrap/3.3.7/js/bootstrap.min.js</js>
 	</group>

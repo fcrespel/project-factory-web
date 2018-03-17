@@ -100,6 +100,14 @@
 			<artifactId>angular-busy</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>angular-dynamic-locale</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>angular-translate</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>angular-ui-bootstrap</artifactId>
 		</dependency>
