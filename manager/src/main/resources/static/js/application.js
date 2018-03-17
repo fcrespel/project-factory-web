@@ -14,21 +14,21 @@ pfManagerApp.config([ '$routeProvider', function($routeProvider) {
 
 pfManagerApp.config([ '$httpProvider', function($httpProvider) {
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-	
+
 	$httpProvider.interceptors.push(function($q, $rootScope) {
 		return {
 			'request': function(config) {
 				$rootScope.$broadcast('alert.dismiss');
 				return config;
 			},
-			
+
 			'responseError': function(rejection) {
 				$rootScope.$broadcast('alert.error', rejection);
 				return $q.reject(rejection);
 			}
 		};
 	});
-	
+
 	$httpProvider.interceptors.push(function($q, $rootScope, $injector) {
 		return {
 			'request': function(config) {
@@ -36,7 +36,7 @@ pfManagerApp.config([ '$httpProvider', function($httpProvider) {
 				$('#loadingWidget').fadeIn("fast");
 				return config;
 			},
-			
+
 			'requestError': function(rejection) {
 				var $http = $http || $injector.get('$http');
 				if ($http.pendingRequests.length < 1) {
@@ -45,7 +45,7 @@ pfManagerApp.config([ '$httpProvider', function($httpProvider) {
 				}
 				return $q.reject(rejection);
 			},
-			
+
 			'response': function(response) {
 				var $http = $http || $injector.get('$http');
 				if ($http.pendingRequests.length < 1) {
@@ -54,7 +54,7 @@ pfManagerApp.config([ '$httpProvider', function($httpProvider) {
 				}
 				return response;
 			},
-			
+
 			'responseError': function(rejection) {
 				var $http = $http || $injector.get('$http');
 				if ($http.pendingRequests.length < 1) {

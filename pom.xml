@@ -85,6 +85,7 @@
 		<spring-boot.version>1.5.10.RELEASE</spring-boot.version>
 		<spring-cloud.version>Edgware.SR2</spring-cloud.version>
 		<springfox.version>2.8.0</springfox.version>
+		<wro4j.version>1.8.0</wro4j.version>
 		
 		<!-- Webjars versions -->
 		<angularjs.version>1.5.11</angularjs.version>
@@ -249,6 +250,28 @@
 					</executions>
 					<configuration>
 						<mainClass>${start-class}</mainClass>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>ro.isdc.wro4j</groupId>
+					<artifactId>wro4j-maven-plugin</artifactId>
+					<version>${wro4j.version}</version>
+					<executions>
+						<execution>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
+						<buildDirectory>${project.build.directory}/classes/static</buildDirectory>
+						<cssDestinationFolder>${project.build.directory}/classes/static/css</cssDestinationFolder>
+						<jsDestinationFolder>${project.build.directory}/classes/static/js</jsDestinationFolder>
+						<wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
+						<extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
+						<contextFolder>${basedir}/src/main/resources/static</contextFolder>
 					</configuration>
 				</plugin>
 			</plugins>

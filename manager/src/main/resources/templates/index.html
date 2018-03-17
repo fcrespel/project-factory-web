@@ -7,9 +7,8 @@
 	<meta name="description" content="Platform Manager"/>
 	<title>Platform Manager</title>
 	<base th:href="@{/}"/>
-	<link type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
-	<link type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet"/>
-	<link type="text/css" th:href="@{/css/application.css}" rel="stylesheet"/>
+	<link type="text/css" th:href="@{/css/deps.css}" rel="stylesheet"/>
+	<link type="text/css" th:href="@{/css/main.css}" rel="stylesheet"/>
 	<link type="text/css" href="/portal/themes/default/css/manager.css" rel="stylesheet"/>
 </head>
 
@@ -19,7 +18,7 @@
 		<div id="header" class="row">
 			<h1>Platform Manager</h1>
 		</div>
-		
+
 		<!-- Main area -->
 		<div id="main" class="row">
 			<div class="col-sm-9 col-md-9 col-lg-10">
@@ -35,7 +34,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Alerts -->
 					<div id="alerts" data-ng-controller="AlertController">
 						<div id="alert-error" class="alert alert-danger alert-dismissible hide">
@@ -55,7 +54,7 @@
 							{{info.data.message}}
 						</div>
 					</div>
-					
+
 					<!-- Current view -->
 					<div data-ng-view=""></div>
 				</div>
@@ -72,18 +71,8 @@
 		</div>
 	</div>
 
-	<script th:src="@{/webjars/jquery/2.2.4/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-	<script th:src="@{/webjars/angularjs/1.5.11/angular.min.js}"></script>
-	<script th:src="@{/webjars/angularjs/1.5.11/angular-messages.min.js}"></script>
-	<script th:src="@{/webjars/angularjs/1.5.11/angular-resource.min.js}"></script>
-	<script th:src="@{/webjars/angularjs/1.5.11/angular-route.min.js}"></script>
-	<script th:src="@{/webjars/angular-ui-bootstrap/2.5.0/dist/ui-bootstrap-tpls.js}"></script>
-	<script th:src="@{/js/application.js}"></script>
-	<script th:src="@{/js/services/alert_service.js}"></script>
-	<script th:src="@{/js/services/account_service.js}"></script>
-	<script th:src="@{/js/controllers/alert_controller.js}"></script>
-	<script th:src="@{/js/controllers/account_controller.js}"></script>
+	<script th:src="@{/js/deps.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 	<script src="/portal/toolbar.php?format=js&amp;tab=manager"></script>
 </body>
 
