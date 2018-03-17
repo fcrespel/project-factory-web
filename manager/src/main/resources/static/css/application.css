@@ -1,3 +1,11 @@
+/*------------------------*/
+/* Application stylesheet */
+/*------------------------*/
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
 #content {
 	position: relative;
 }
@@ -12,23 +20,24 @@
 	background-color: rgba(255,255,255,0.65);
 }
 
-.loading-backdrop .loading-backdrop-table {
+.loading-backdrop-table {
 	 display: table;
 	 width: 100%;
 	 height: 100%;
 }
 
-.loading-backdrop .loading-backdrop-cell {
+.loading-backdrop-cell {
 	 display: table-cell;
 	 text-align: center;
 	 vertical-align: middle;
 }
 
-.loading-backdrop .block {
+.loading-backdrop-cell .block {
 	text-align: center;
 	font-size: 26px;
 }
-.loading-backdrop .block:before {
+
+.loading-backdrop-cell .block:before {
 	content: '';
 	display: inline-block;
 	height: 100%;

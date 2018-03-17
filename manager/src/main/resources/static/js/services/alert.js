@@ -1,6 +1,8 @@
-pfManagerApp.factory('AlertService', function($rootScope, $log) {
+angular
+	.module('pf-manager')
+	.factory('AlertService', function($rootScope) {
 
-	var alertService = {
+	return {
 		hideAll: function() {
 			$rootScope.$broadcast('alert.dismiss');
 		},
@@ -21,7 +23,5 @@ pfManagerApp.factory('AlertService', function($rootScope, $log) {
 			$rootScope.$broadcast('alert.error', error);
 		}
 	};
-
-	return alertService;
 
 });

@@ -1,4 +1,6 @@
-pfManagerApp.controller('AlertController', function($scope, $log) {
+angular
+	.module('pf-manager')
+	.controller('AlertController', function($scope) {
 
 	$scope.init = function() {
 		$('#alerts .alert .close').click(function() {

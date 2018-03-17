@@ -20,21 +20,10 @@
 		</div>
 
 		<!-- Main area -->
-		<div id="main" class="row">
+		<div id="main" class="row ng-cloak">
 			<div class="col-sm-9 col-md-9 col-lg-10">
 				<!-- Content -->
-				<div id="content" class="row">
-					<!-- Loading backdrop -->
-					<div id="loadingWidget" class="loading-backdrop">
-						<div class="loading-backdrop-table">
-							<div class="loading-backdrop-cell">
-								<div class="block">
-									<i class="fa fa-spinner fa-spin fa-lg"></i> Chargement...
-								</div>
-							</div>
-						</div>
-					</div>
-
+				<div id="content" class="row" cg-busy="activePromises">
 					<!-- Alerts -->
 					<div id="alerts" data-ng-controller="AlertController">
 						<div id="alert-error" class="alert alert-danger alert-dismissible hide">
@@ -74,6 +63,16 @@
 	<script th:src="@{/js/deps.js}"></script>
 	<script th:src="@{/js/main.js}"></script>
 	<script src="/portal/toolbar.php?format=js&amp;tab=manager"></script>
+
+	<script type="text/ng-template" id="loading.html">
+		<div class="loading-backdrop-table">
+			<div class="loading-backdrop-cell">
+				<div class="block">
+					<i class="fa fa-spinner fa-spin fa-lg"></i> Chargement ...
+				</div>
+			</div>
+		</div>
+	</script>
 </body>
 
 </html>

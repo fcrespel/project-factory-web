@@ -89,6 +89,7 @@
 		
 		<!-- Webjars versions -->
 		<angularjs.version>1.5.11</angularjs.version>
+		<angular-busy.version>4.1.4</angular-busy.version>
 		<angular-ui-bootstrap.version>2.5.0</angular-ui-bootstrap.version>
 		<bootstrap.version>3.3.7</bootstrap.version>
 		<font-awesome.version>4.7.0</font-awesome.version>
@@ -158,6 +159,17 @@
 				<groupId>org.webjars</groupId>
 				<artifactId>angularjs</artifactId>
 				<version>${angularjs.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.bower</groupId>
+				<artifactId>angular-busy</artifactId>
+				<version>${angular-busy.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.webjars.bower</groupId>
+						<artifactId>angular</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.webjars.npm</groupId>

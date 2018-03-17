@@ -1,4 +1,6 @@
-pfManagerApp.controller('AccountController', function($rootScope, $scope, $log, AccountService, AlertService) {
+angular
+	.module('pf-manager')
+	.controller('AccountController', function($scope, AccountService, AlertService) {
 
 	$scope.init = function() {
 		$scope.user = {};

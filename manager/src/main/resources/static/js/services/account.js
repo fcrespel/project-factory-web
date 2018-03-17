@@ -1,8 +1,10 @@
-pfManagerApp.factory('AccountService', function($resource, $log) {
+angular
+	.module('pf-manager')
+	.factory('AccountService', function($resource) {
 
 	var accountResource = $resource('v1/account/:action', {}, {});
 
-	var accountService = {
+	return {
 		getPrincipal: function(successCallback, errorCallback) {
 			return accountResource.get({}, successCallback, errorCallback);
 		},
@@ -19,7 +21,5 @@ pfManagerApp.factory('AccountService', function($resource, $log) {
 			return accountResource.save({action: 'password'}, {oldPassword: oldPassword, newPassword: newPassword}, successCallback, errorCallback);
 		}
 	};
-
-	return accountService;
 
 });
