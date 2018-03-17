@@ -1,7 +1,7 @@
 <h2>{{ 'MY_ACCOUNT' | translate }}</h2>
 
 <p class="text-danger" data-ng-hide="user.userName || isLoading">{{ 'USER_UNAVAILABLE' | translate }}.
-  <a href="#/account" data-ng-click="getUser()">{{ 'ERROR_RETRY' | translate }}</a>.</p>
+  <a href="account" data-ng-click="getUser()">{{ 'ERROR_RETRY' | translate }}</a>.</p>
 
 <fieldset data-ng-show="user.userName">
   <legend>{{ 'USER_PROFILE' | translate }}</legend>

@@ -8,7 +8,11 @@ angular
 	])
 
 	// Routes config
-	.config([ '$routeProvider', function($routeProvider) {
+	.config([ '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		// HTML5 URL mode (no #!)
+		$locationProvider.html5Mode(true);
+
+		// Routes
 		$routeProvider.when('/account', {
 			templateUrl : './views/account.html',
 			controller : 'AccountController'
