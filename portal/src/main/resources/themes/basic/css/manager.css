@@ -27,7 +27,7 @@ a, a:link, a:visited {
 /**********/
 
 #header {
-	padding: 25px 0 0 90px;
+	padding: 0 0 0 90px;
 	height: 120px;
 	background-image: url(../img/pf-logo.png);
 	background-repeat: no-repeat;
@@ -35,12 +35,16 @@ a, a:link, a:visited {
 }
 
 #header h1 {
-	margin-top: 15px;
+	margin-top: 40px;
 	font-size: 22pt;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	text-align: left;
 	line-height: normal;
+}
+
+#header #userinfo {
+	margin-top: 2px;
 }
 
 
