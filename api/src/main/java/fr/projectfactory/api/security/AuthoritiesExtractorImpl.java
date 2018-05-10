@@ -11,8 +11,6 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
-import org.springframework.expression.ExpressionParser;
-import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,11 +21,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AuthoritiesExtractorImpl implements AuthoritiesExtractor {
+public class AuthoritiesExtractorImpl extends AbstractAttributeExtractor implements AuthoritiesExtractor {
 
 	private static final Logger logger = LoggerFactory.getLogger(AuthoritiesExtractorImpl.class);
-
-	private final ExpressionParser expressionParser = new SpelExpressionParser();
 
 	private String userAttribute;
 	private GrantedAuthoritiesMapper userAuthorityMapper;
@@ -43,6 +39,7 @@ public class AuthoritiesExtractorImpl implements AuthoritiesExtractor {
 		// Add default authorities
 		if (defaultAuthorities != null) {
 			for (String authority : defaultAuthorities) {
+				logger.debug("Adding default authority={}", authority);
 				authorities.add(new SimpleGrantedAuthority(authority));
 			}
 		}
@@ -54,6 +51,7 @@ public class AuthoritiesExtractorImpl implements AuthoritiesExtractor {
 			if (getUserAuthorityMapper() != null) {
 				userAuthorities = getUserAuthorityMapper().mapAuthorities(userAuthorities);
 			}
+			logger.debug("Adding user authorities={}", userAuthorities);
 			authorities.addAll(userAuthorities);
 		}
 
@@ -64,6 +62,7 @@ public class AuthoritiesExtractorImpl implements AuthoritiesExtractor {
 			if (getGroupAuthorityMapper() != null) {
 				groupAuthorities = getGroupAuthorityMapper().mapAuthorities(groupAuthorities);
 			}
+			logger.debug("Adding group authorities={}", groupAuthorities);
 			authorities.addAll(groupAuthorities);
 		}
 
@@ -73,6 +72,7 @@ public class AuthoritiesExtractorImpl implements AuthoritiesExtractor {
 			for (Entry<String, List<String>> mapping : authorityMapping.entrySet()) {
 				for (String authority : mapping.getValue()) {
 					if (currentAuthorities.contains(authority)) {
+						logger.debug("Adding mapped authority={} from existing authority={}", mapping.getKey(), authority);
 						authorities.add(new SimpleGrantedAuthority(mapping.getKey()));
 						break;
 					}
@@ -80,24 +80,8 @@ public class AuthoritiesExtractorImpl implements AuthoritiesExtractor {
 			}
 		}
 
+		logger.debug("Extracted authorities={}", authorities);
 		return new ArrayList<GrantedAuthority>(authorities);
-	}
-
-	protected String getAttributeValue(Map<String, Object> map, String attributeName) {
-		String attributeValue = null;
-		if (attributeName != null && !attributeName.isEmpty()) {
-			try {
-				attributeValue = expressionParser.parseExpression(attributeName).getValue(map, String.class);
-				if (attributeValue != null && !attributeValue.isEmpty()) {
-					if (logger.isDebugEnabled()) {
-						logger.debug("Read attribute=" + attributeName + " from map=" + map);
-					}
-				}
-			} catch (Exception e) {
-				logger.error("Failed to get attribute=" + attributeName + " from map=" + map, e);
-			}
-		}
-		return attributeValue;
 	}
 
 }

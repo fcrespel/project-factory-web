@@ -32,11 +32,12 @@ logging:
   path: logs
   level:
     org.springframework.security.oauth2: debug
+    fr.projectfactory.api: debug
 authorization:
   userAttribute: "['id']"
   userAuthorityPrefix: USER_
   userAuthorityUppercase: false
-  groupAttribute: "['attributes']?.^[#this['groups']!=null]?.get('groups')"
+  groupAttribute: "['attributes']?.get('groups')"
   groupAuthorityPrefix: GROUP_
   groupAuthorityUppercase: false
   authorityMapping:
@@ -47,4 +48,4 @@ ldap:
     urls: ldap://localhost:10389
     base: dc=dev,dc=project-factory,dc=fr
     userDn: cn=root,dc=dev,dc=project-factory,dc=fr
-    password: UXWBNpzF6cAR9YpV
+    password: uTA1AwnQXK9Rc6WQ
