@@ -1,7 +1,7 @@
 angular
 	// Main app
 	.module('pf-manager', [
-		'ngMessages', 'ngResource', 'ngRoute',
+		'ngCookies', 'ngMessages', 'ngResource', 'ngRoute',
 		'ui.bootstrap',
 		'pascalprecht.translate', 'tmh.dynamicLocale',
 		'cgBusy'

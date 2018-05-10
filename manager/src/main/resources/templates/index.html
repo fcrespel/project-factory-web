@@ -16,6 +16,15 @@
 	<div class="container-fluid">
 		<!-- Header -->
 		<div id="header" class="row">
+			<div id="userinfo" class="pull-right" data-ng-controller="UserinfoController">
+				<small>
+					<span data-translate="LOGGED_AS" data-translate-values="user" data-translate-compile=""></span> -
+					<a href="javascript:logoutForm.submit()">{{ 'LOGOUT' | translate }}</a>
+				</small>
+				<form name="logoutForm" action="logout" method="POST" class="hidden">
+					<input type="hidden" name="_csrf" data-ng-value="csrfToken"/>
+				</form>
+			</div>
 			<h1>Platform Manager</h1>
 		</div>
 

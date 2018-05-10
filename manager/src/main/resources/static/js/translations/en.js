@@ -24,6 +24,8 @@ angular
 		MENU: 'Menu',
 		LOADING: 'Loading...',
 		SAVE: 'Save',
+		LOGGED_AS: 'Logged in as <strong><a href="account" title="{{displayName}}">{{userName}}</a></strong>',
+		LOGOUT: 'Logout',
 
 		// Errors
 		ERROR: 'ERROR',

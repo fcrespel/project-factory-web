@@ -24,6 +24,8 @@ angular
 		MENU: 'Menu',
 		LOADING: 'Chargement...',
 		SAVE: 'Enregistrer',
+		LOGGED_AS: 'Connecté en tant que <strong><a href="account" title="{{displayName}}">{{userName}}</a></strong>',
+		LOGOUT: 'Déconnexion',
 
 		// Errors
 		ERROR: 'ERREUR',

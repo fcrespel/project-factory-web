@@ -13,6 +13,7 @@
 		<css minimize="false">/webjars/font-awesome/4.7.0/css/font-awesome.min.css</css>
 		<js minimize="false">/webjars/jquery/2.2.4/jquery.min.js</js>
 		<js minimize="false">/webjars/angularjs/1.5.11/angular.min.js</js>
+		<js minimize="false">/webjars/angularjs/1.5.11/angular-cookies.min.js</js>
 		<js minimize="false">/webjars/angularjs/1.5.11/angular-messages.min.js</js>
 		<js minimize="false">/webjars/angularjs/1.5.11/angular-resource.min.js</js>
 		<js minimize="false">/webjars/angularjs/1.5.11/angular-route.min.js</js>
