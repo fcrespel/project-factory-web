@@ -5,27 +5,23 @@
 
 @import url(common.css);
 
-html, body {
-	min-height: 100%;
-}
-
 body {
-	padding: 37px 50px 0 50px;
+	padding: 37px 50px 0 50px !important;
 	color: #585858;
-	background-color: #f1efe2;
+	background-color: #f1efe2 !important;
 }
 
-a, a:visited {
+a:link, a:visited, a:focus, a:hover {
 	color: #116699;
 }
 
 
-/***********/
-/* Wrapper */
-/***********/
+/*************/
+/* Container */
+/*************/
 
-#wrapper {
-	margin: 60px auto 20px auto;
+#container {
+	margin: 60px auto 20px auto !important;
 	background-color: white;
 	border: 1px solid #cccccc;
 	box-shadow: 0 0 10px #999999;
@@ -36,20 +32,24 @@ a, a:visited {
 /* Header */
 /**********/
 
-#header {
-	margin-top: 35px;
-	margin-bottom: 40px;
-	height: 75px;
+header {
+	padding: 30px 0;
 }
 
-#header h1 {
-	margin: 0;
-	padding-top: 15px;
+header h1 {
+	float: none;
+	width: auto;
+	height: auto;
+	background: none;
+	text-indent: 0;
 	color: #222222;
-	font-size: 22pt;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 30px;
 	font-weight: normal;
 	text-align: center;
+}
+
+.status-section header {
+	display: none;
 }
 
 
@@ -58,11 +58,28 @@ a, a:visited {
 /***********/
 
 #content {
-	margin-bottom: 60px;
+	background-color: transparent;
 }
 
 #content h2 {
+	margin-top: 0;
 	font-size: 18px;
+}
+
+#content .btn-submit,
+#content .btn-submit[disabled]:hover,
+#fm1 .row .btn-submit,
+#fm1 .row .btn-submit[disabled]:hover {
+	color: white;
+	background-color: #337ab7;
+	border: 1px solid #2e6da4;
+}
+#content .btn-submit:hover,
+#content .btn-submit:focus,
+#fm1 .row .btn-submit:hover,
+#fm1 .row .btn-submit:focus {
+	background-color: #286090;
+	border-color: #204d74;
 }
 
 
@@ -70,9 +87,10 @@ a, a:visited {
 /* Messages */
 /*----------*/
 
-#msg h2 {
+.alert h1,
+.alert h2 {
 	margin-top: 0;
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: bold;
 }
 
@@ -81,20 +99,45 @@ a, a:visited {
 /* Login form */
 /*------------*/
 
-#login h2 {
-	font-size: 14px;
-	margin-top: 0;
-	margin-bottom: 20px;
+#login {
+	padding: 20px;
+	background-color: transparent;
 }
 
-#login #instructions ul {
-	margin: -10px 0 20px 25px;
+#login form > h2 {
+	display: block;
+	margin: 0 0 20px 0;
+	font-size: 14px;
+}
+
+#login form > h2 ul {
+	margin: 10px 0 20px 25px;
 	padding: 0;
 	list-style-type: circle;
 }
 
-#login .form-group-sm {
-	margin-bottom: 10px;
+#login form > h2 ul li {
+	margin: 0 0 5px 0;
+}
+
+#login .row {
+	margin: 10px 0;
+}
+
+#login .login-header {
+	display: none;
+}
+
+#login .check input[type=checkbox] {
+	margin-top: 0;
+}
+
+#login .check label {
+	padding-left: 5px;
+}
+
+#fm1 + div {
+	display: none; /* Forgot password link */
 }
 
 
@@ -102,37 +145,25 @@ a, a:visited {
 /* Responsive design */
 /*********************/
 
-@media (max-width: 991px) {
+@media only screen and (max-width: 960px) {
 	body {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		background-color: white !important;
 	}
 
-	#wrapper {
-		margin-top: 40px;
-	}
-
-	#header {
-		margin-bottom: 20px;
-	}
-}
-
-@media (max-width: 767px) {
-	body {
-		padding-left: 0;
-		padding-right: 0;
-		background-color: white;
-	}
-
-	#wrapper {
-		margin: 0 -15px;
+	#container {
+		margin: 20px 0 !important;
 		background: none;
 		border: none;
 		box-shadow: none;
 	}
 
-	#header {
-		margin-top: 30px;
-		margin-bottom: 20px;
+	header {
+		padding: 20px 0;
+	}
+
+	#login {
+		padding: 10px;
 	}
 }

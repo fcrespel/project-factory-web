@@ -12,3 +12,11 @@ body {
 #platform-toolbar-wrapper {
 	box-shadow: 0 0 10px black;
 }
+
+app-header .header {
+	top: 37px !important;
+}
+
+app-form > div {
+	top: 88px !important;
+}
