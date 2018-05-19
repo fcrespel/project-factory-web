@@ -5,8 +5,10 @@
 
 @import url(common.css);
 
-body {
-	padding-top: 37px !important;
+.global-nav,
+.app-wrapper,
+.loadingIndicator {
+	top: 37px !important;
 }
 
 #platform-toolbar-wrapper {
