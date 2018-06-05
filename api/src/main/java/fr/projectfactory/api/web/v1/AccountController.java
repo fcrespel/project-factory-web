@@ -27,10 +27,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.projectfactory.api.model.PasswordChange;
 import fr.projectfactory.api.model.User;
 import fr.projectfactory.api.model.UserToken;
-import fr.projectfactory.api.model.UserTokenRequest;
+import fr.projectfactory.api.model.request.PasswordChangeRequest;
+import fr.projectfactory.api.model.request.UserTokenRequest;
 import fr.projectfactory.api.service.DirectoryService;
 import fr.projectfactory.api.service.UserTokenService;
 import io.swagger.annotations.Api;
@@ -95,7 +95,7 @@ public class AccountController implements ApplicationEventPublisherAware {
 
 	@PostMapping("/password")
 	@ApiOperation("Change the authenticated user password")
-	public void changePassword(Principal p, @Valid @RequestBody PasswordChange passwordChange) {
+	public void changePassword(Principal p, @Valid @RequestBody PasswordChangeRequest passwordChange) {
 		directoryService.saveUserPassword(p.getName(), passwordChange.getOldPassword(), passwordChange.getNewPassword());
 		applicationEventPublisher.publishEvent(new AuditApplicationEvent(p.getName(), "ACCOUNT_CHANGE_PASSWORD"));
 	}

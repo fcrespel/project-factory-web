@@ -12,7 +12,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import com.google.common.hash.Hashing;
 
-import fr.projectfactory.api.dao.UserTokenRepo;
+import fr.projectfactory.api.dao.jpa.UserTokenRepo;
 import fr.projectfactory.api.model.UserToken;
 import fr.projectfactory.api.service.UserTokenService;
 

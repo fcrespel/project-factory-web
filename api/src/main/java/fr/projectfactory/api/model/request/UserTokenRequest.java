@@ -1,4 +1,4 @@
-package fr.projectfactory.api.model;
+package fr.projectfactory.api.model.request;
 
 import lombok.Data;
 

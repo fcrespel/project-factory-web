@@ -1,4 +1,4 @@
-package fr.projectfactory.api.dao;
+package fr.projectfactory.api.dao.jpa;
 
 import java.util.Collection;
 

@@ -14,8 +14,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableJpaAuditing
-@EnableJpaRepositories
-@EnableLdapRepositories
+@EnableJpaRepositories(basePackages = "fr.projectfactory.api.dao.jpa")
+@EnableLdapRepositories(basePackages = "fr.projectfactory.api.dao.ldap")
 @EnableResourceServer
 public class ApiApplication extends SpringBootServletInitializer {
 

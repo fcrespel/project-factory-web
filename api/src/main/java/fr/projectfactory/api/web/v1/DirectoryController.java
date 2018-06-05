@@ -34,7 +34,7 @@ import springfox.documentation.annotations.ApiIgnore;
 public class DirectoryController implements ApplicationEventPublisherAware {
 
 	@Autowired
-	protected DirectoryService directory;
+	protected DirectoryService directoryService;
 
 	protected ApplicationEventPublisher applicationEventPublisher;
 
@@ -56,13 +56,13 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 	@GetMapping("/users")
 	@ApiOperation("Get all users")
 	public Collection<User> getUsers() {
-		return directory.getUsers();
+		return directoryService.getUsers();
 	}
 
 	@GetMapping("/users/{userName}")
 	@ApiOperation("Get a single user by its userName")
 	public User getUser(@PathVariable String userName) {
-		User u = directory.getUser(userName);
+		User u = directoryService.getUser(userName);
 		u.add(linkTo(methodOn(DirectoryController.class).getUser(userName)).withSelfRel());
 		return u;
 	}
@@ -70,7 +70,7 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 	@PutMapping("/users/{userName}")
 	@ApiOperation("Update a single user by its userName")
 	public User saveUser(Principal p, @PathVariable String userName, @Valid @RequestBody User user) {
-		User u = directory.saveUser(userName, user);
+		User u = directoryService.saveUser(userName, user);
 		u.add(linkTo(methodOn(DirectoryController.class).saveUser(p, userName, user)).withSelfRel());
 		applicationEventPublisher.publishEvent(new AuditApplicationEvent(p.getName(), "DIRECTORY_SAVE_USER", user.toString()));
 		return u;
@@ -79,13 +79,13 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 	@GetMapping("/groups")
 	@ApiOperation("Get all groups")
 	public Collection<Group> getGroups() {
-		return directory.getGroups();
+		return directoryService.getGroups();
 	}
 
 	@GetMapping("/groups/{name}")
 	@ApiOperation("Get a single group by name")
 	public Group getGroup(@PathVariable String name) {
-		Group g = directory.getGroup(name);
+		Group g = directoryService.getGroup(name);
 		g.add(linkTo(methodOn(DirectoryController.class).getGroup(name)).withSelfRel());
 		return g;
 	}
@@ -93,7 +93,7 @@ public class DirectoryController implements ApplicationEventPublisherAware {
 	@PutMapping("/groups/{name}")
 	@ApiOperation("Update a single group by its name")
 	public Group saveGroup(Principal p, @PathVariable String name, @Valid @RequestBody Group group) {
-		Group g = directory.saveGroup(name, group);
+		Group g = directoryService.saveGroup(name, group);
 		g.add(linkTo(methodOn(DirectoryController.class).saveGroup(p, name, group)).withSelfRel());
 		applicationEventPublisher.publishEvent(new AuditApplicationEvent(p.getName(), "DIRECTORY_SAVE_GROUP", group.toString()));
 		return g;
