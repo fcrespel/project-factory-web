@@ -5,7 +5,7 @@
 
 <fieldset data-ng-show="user.userName">
   <legend>{{ 'USER_PROFILE' | translate }}</legend>
-  <form name="userForm" class="form-horizontal">
+  <form name="userForm" class="form-horizontal" data-ng-submit="saveUser()">
     <div class="form-group">
       <label for="userName" class="col-sm-4 col-md-3 control-label">{{ 'USER_USERNAME' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
@@ -48,7 +48,7 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-4 col-md-offset-3 col-sm-6 col-md-5 col-lg-4">
-        <button type="submit" class="btn btn-default" data-ng-disabled="userForm.$invalid" data-ng-click="saveUser()">{{ 'SAVE' | translate }}</button>
+        <button type="submit" class="btn btn-default" data-ng-disabled="userForm.$invalid">{{ 'SAVE' | translate }}</button>
       </div>
     </div>
   </form>
@@ -56,7 +56,7 @@
 
 <fieldset data-ng-show="user.userName && user.hasPassword">
   <legend>{{ 'PASSWORD' | translate }}</legend>
-  <form name="passwordForm" class="form-horizontal">
+  <form name="passwordForm" class="form-horizontal" data-ng-submit="changePassword()">
     <div class="form-group" data-ng-class="{ 'has-error': passwordForm.oldPassword.$touched && passwordForm.oldPassword.$invalid }">
       <label for="oldPassword" class="col-sm-4 col-md-3 control-label">{{ 'PASSWORD_CURRENT' | translate }}</label>
       <div class="col-sm-6 col-md-5 col-lg-4">
@@ -87,8 +87,58 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-4 col-md-offset-3 col-sm-6 col-md-5 col-lg-4">
-        <button type="submit" class="btn btn-default" data-ng-disabled="passwordForm.$invalid" data-ng-click="changePassword()">{{ 'PASSWORD_CHANGE' | translate }}</button>
+        <button type="submit" class="btn btn-default" data-ng-disabled="passwordForm.$invalid">{{ 'PASSWORD_CHANGE' | translate }}</button>
       </div>
     </div>
   </form>
 </fieldset>
+
+<fieldset data-ng-show="user.userName">
+  <legend>{{ 'TOKENS' | translate }}</legend>
+  <p class="text-muted">{{ 'TOKEN_INFO' | translate }}</p>
+  <table class="table table-condensed table-striped table-hover" data-ng-if="tokens && tokens.length > 0">
+    <colgroup>
+      <col/>
+      <col style="width: 180px;"/>
+      <col style="width: 180px;"/>
+      <col style="width: 80px;"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>{{ 'TOKEN_COMMENTS' | translate }}</th>
+        <th>{{ 'TOKEN_CREATED_AT' | translate }}</th>
+        <th>{{ 'TOKEN_EXPIRES_AT' | translate }}</th>
+        <th>{{ 'ACTIONS' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="token in tokens">
+        <td>{{token.comments}}</td>
+        <td>{{(token.createdAt | date:'medium') || ('UNKNOWN' | translate) }}</td>
+        <td>{{(token.expiresAt | date:'medium') || ('NEVER' | translate) }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-xs" title="{{ 'TOKEN_REVOKE' | translate }}" data-ng-click="revokeToken(token.id)">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form name="tokenForm" class="form-inline" data-ng-submit="generateToken()">
+    <label for="tokenComments" class="control-label">{{ 'TOKEN_REQUEST' | translate }}</label>
+    <div class="form-group" data-ng-class="{ 'has-error': tokenForm.tokenComments.$touched && tokenForm.tokenComments.$invalid }">
+      <label for="tokenComments" class="sr-only">{{ 'TOKEN_REQUEST_COMMENTS' | translate }}</label>
+      <input type="text" class="form-control" name="tokenComments" id="tokenComments" placeholder="{{ 'TOKEN_REQUEST_COMMENTS' | translate }}" data-ng-model="tokenRequest.comments" required />
+    </div>
+    <div class="form-group" data-ng-class="{ 'has-error': tokenForm.tokenDuration.$touched && tokenForm.tokenDuration.$invalid }">
+      <label for="tokenDuration" class="sr-only">{{ 'TOKEN_REQUEST_DURATION' | translate }}</label>
+      <input type="number" class="form-control" name="tokenDuration" id="tokenDuration" placeholder="{{ 'TOKEN_REQUEST_DURATION' | translate }}" data-ng-model="tokenRequest.duration" />
+    </div>
+    <button type="submit" class="btn btn-default" data-ng-disabled="tokenForm.$invalid">{{ 'TOKEN_GENERATE' | translate }}</button>
+  </form>
+  <div class="alert alert-info" data-ng-if="generatedToken">
+    <button type="button" class="close" aria-label="Close" data-ng-click="hideGeneratedToken()"><span aria-hidden="true">&times;</span></button>
+    <span data-translate="TOKEN_GENERATE_SUCCESS" data-translate-values="generatedToken" data-translate-compile=""></span>
+  </div>
+</fieldset>
+
