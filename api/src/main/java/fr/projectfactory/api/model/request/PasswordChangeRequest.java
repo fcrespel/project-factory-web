@@ -1,11 +1,11 @@
-package fr.projectfactory.api.model;
+package fr.projectfactory.api.model.request;
 
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
 @Data
-public class PasswordChange {
+public class PasswordChangeRequest {
 
 	@NotNull
 	private String oldPassword;

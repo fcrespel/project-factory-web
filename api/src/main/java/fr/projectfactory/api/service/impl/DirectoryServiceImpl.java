@@ -23,8 +23,8 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Sets;
 
-import fr.projectfactory.api.dao.GroupRepo;
-import fr.projectfactory.api.dao.UserRepo;
+import fr.projectfactory.api.dao.ldap.GroupRepo;
+import fr.projectfactory.api.dao.ldap.UserRepo;
 import fr.projectfactory.api.exception.BusinessException;
 import fr.projectfactory.api.model.Group;
 import fr.projectfactory.api.model.User;

@@ -2,24 +2,14 @@ angular
 	.module('pf-manager')
 	.factory('AccountService', function($resource) {
 
-	var accountResource = $resource('v1/account/:action', {}, {});
-
-	return {
-		getPrincipal: function(successCallback, errorCallback) {
-			return accountResource.get({}, successCallback, errorCallback);
-		},
-
-		getUser: function(successCallback, errorCallback) {
-			return accountResource.get({action: 'user'}, successCallback, errorCallback);
-		},
-
-		saveUser: function(user, successCallback, errorCallback) {
-			return accountResource.save({action: 'user'}, user, successCallback, errorCallback);
-		},
-
-		changePassword: function(oldPassword, newPassword, successCallback, errorCallback) {
-			return accountResource.save({action: 'password'}, {oldPassword: oldPassword, newPassword: newPassword}, successCallback, errorCallback);
-		}
-	};
+	return $resource('v1/account/:action', {}, {
+		'getPrincipal': { method: 'GET', params: { action: 'principal' } },
+		'getUser': { method: 'GET', params: { action: 'user' } },
+		'saveUser': { method: 'POST', params: { action: 'user' } },
+		'changePassword': { method: 'POST', params: { action: 'password' } },
+		'getTokens': { method: 'GET', isArray: true, params: { action: 'tokens' } },
+		'generateToken': { method: 'POST', params: { action: 'tokens' } },
+		'revokeToken': { method: 'DELETE', params: { action: 'tokens' }, url: 'v1/account/:action/:id' }
+	});
 
 });
