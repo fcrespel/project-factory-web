@@ -60,6 +60,7 @@
 							<goal>compress</goal>
 						</goals>
 						<configuration>
+							<force>true</force>
 							<nosuffix>true</nosuffix>
 							<includes>
 								<include>themes/**/*.css</include>
