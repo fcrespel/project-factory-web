@@ -9,6 +9,10 @@ header.navbar-gitlab.navbar-gitlab {
 	top: 37px;
 }
 
+.fullscreen-layout > .navbar-gitlab {
+	margin-top: 37px;
+}
+
 .page-with-sidebar .nav-sidebar,
 .page-with-sidebar .right-sidebar {
 	top: 77px;
