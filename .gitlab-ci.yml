@@ -1,0 +1,51 @@
+variables:
+  MAVEN_OPTS: '-Dmaven.repo.local=.mvn/repository'
+  MAVEN_CLI_OPTS: '-U -B -s .mvn/settings.xml'
+  MAVEN_GOALS: 'clean install'
+  MAVEN_REPO_CREDS_USR: 'toComplete'
+  MAVEN_REPO_CREDS_PSW: 'toComplete'
+
+cache:
+  key: ${CI_PROJECT_PATH_SLUG}
+  paths:
+    - .mvn/repository
+
+stages:
+  - build_parent
+  - build_modules
+
+build_parent:
+  stage: build_parent
+  image: openjdk:8-jdk
+  script:
+    - ./mvnw -N ${MAVEN_CLI_OPTS} ${MAVEN_GOALS}
+
+build_api:
+  stage: build_modules
+  image: openjdk:8-jdk
+  script:
+    - ./mvnw -f api/pom.xml ${MAVEN_CLI_OPTS} ${MAVEN_GOALS}
+  artifacts:
+    paths:
+      - api/target/*.war
+    expire_in: 1 week
+
+build_manager:
+  stage: build_modules
+  image: openjdk:8-jdk
+  script:
+    - ./mvnw -f manager/pom.xml ${MAVEN_CLI_OPTS} ${MAVEN_GOALS}
+  artifacts:
+    paths:
+      - manager/target/*.war
+    expire_in: 1 week
+
+build_portal:
+  stage: build_modules
+  image: openjdk:8-jdk
+  script:
+    - ./mvnw -f portal/pom.xml ${MAVEN_CLI_OPTS} ${MAVEN_GOALS}
+  artifacts:
+    paths:
+      - portal/target/*.zip
+    expire_in: 1 week
