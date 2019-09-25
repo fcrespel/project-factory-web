@@ -47,7 +47,7 @@
 		<repository>
 			<id>project-factory</id>
 			<name>Project Factory</name>
-			<url>https://forge.crespel.me/nexus/content/groups/project-factory/</url>
+			<url>https://services.crespel.me/nexus/repository/project-factory/</url>
 		</repository>
 		<repository>
 			<id>jcenter</id>
@@ -59,7 +59,7 @@
 		<pluginRepository>
 			<id>project-factory</id>
 			<name>Project Factory</name>
-			<url>https://forge.crespel.me/nexus/content/groups/project-factory/</url>
+			<url>https://services.crespel.me/nexus/repository/project-factory/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
